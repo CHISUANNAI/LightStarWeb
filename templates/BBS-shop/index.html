@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>星星点灯</title>
+	<meta name="description" content="星星点灯网，致力于关爱自闭症人群">
+	<meta name="keywords" content="自闭症，关爱，志愿者">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- 官网提供的 axios 在线地址 -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<link href="/BBS-shop/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/BBS-shop/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/BBS-shop/css/flexslider.css" type="text/css" media="screen" property="" />
+	<link href="/BBS-shop/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="/BBS-shop/css/head.css">
+	<link rel="stylesheet" href="/BBS-shop/css/base.css">
+	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- 官网提供的 axios 在线地址 -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="/BBS-shop/js/modernizr-2.6.2.min.js"></script>
+</head>
+
+<body>
+	<!-- 头部 -->
+	<header id="head">
+		<!-- 快捷菜单  -->
+		<div class="post-shortcut">
+			<nav class="container">
+				<div class="logo fl">
+				</div>
+				<ul class="left fl">
+					<li><a href="/activity/">活动</a></li>
+					<li><a href="/BBS/show_post_html">论坛</a></li>
+					<li><a href="/Charity_sale/open_sale">义卖</a></li>
+				</ul>
+				<ul class="right fr">
+		                 {% if request.session.is_login %}
+                     <label><span><a href="#">
+                                    <div class="ava"><img id="touxiang" alt=""
+                                            class="small"></div>
+                                </a></span></label><span id="session">{{ request.session.userID }}</span></li>
+                    <label><span><a href="/user_data/logout/">退出登录</a></span></label></li>
+                    <label><span><a href="/user_apply_data/openmine">个人主页</a></span></label></li>
+                    {% else %}
+                   <li ><label><span><a href="/user_data/login/">未登录</a></span></label></li>
+                    {% endif %}
+				</ul>
+			</nav>
+		</div>
+<!--		<div class="card" v-if="cardShow" @mouseleave="cardLoad">-->
+<!--			<ul>-->
+<!--				<li>监护人</li>-->
+<!--				<li><a href="#">收到的消息</a></li>-->
+<!--				<li><a href="#">收到的回复</a></li>-->
+<!--				<li><a href="#">待办的活动</a></li>-->
+<!--			</ul>-->
+<!--		</div>-->
+	</header>
+	<!-- //header -->
+	<!-- 轮播图 -->
+	<div class="w3ls-banner">
+		<div class="slider">
+			<div class="callbacks_container">
+				<ul class="rslides callbacks callbacks1" id="slider4">
+					<li>
+						<div class="w3layouts-banner-top">
+
+							<div class="container">
+								<div class="agileits-banner-info">
+									<h4>关爱自闭症人群的活动 </h4>
+									<h3>让自闭症人群不再“自闭”</h3>
+									<p>欢迎加入我们一起传播爱</p>
+									<div class="agileits_w3layouts_more menu__item">
+										<a href="#" class="menu__link">查看更多</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top1">
+							<div class="container">
+								<div class="agileits-banner-info">
+									<h4>关于自闭症人群的论坛 </h4>
+									<h3>科普知识 交流经验 寻求帮助</h3>
+									<p>欢迎加入我们一起传播爱</p>
+									<div class="agileits_w3layouts_more menu__item">
+										<a href="#" class="menu__link">查看更多</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top2">
+							<div class="container">
+								<div class="agileits-banner-info">
+									<h4>自闭症人群的作品义卖</h4>
+									<h3>传播爱心 助人为乐</h3>
+									<p>欢迎加入我们一起传播爱</p>
+									<div class="agileits_w3layouts_more menu__item">
+										<a href="#" class="menu__link">查看更多</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!-- //轮播图 -->
+	<!--//Header-->
+	<!-- 活动页展示 -->
+	<div class="about-wthree">
+		<div class="container">
+			<div class="ab-w3l-spa">
+				<div class="w3layouts_head">
+					<a>
+						<h3 class="tittle" href="/activity/"> 我们的活动</h3>
+					</a>
+					<div class="border"></div>
+				</div>
+				<p class="about-para-w3ls">有这么一群孩子，他们就像遥远的天空中闪烁的星星，远离我们的现实生活，这样的孩子被叫做“星星的孩子”
+					，“星星的孩子”就像天上的星星一样活在自己的世界里。人们这样描述孤独症儿童：他们不聋，却对声响充耳不闻；他们不盲，却对周围人与物视而不见；他们不哑，却不知该如何开口说话。他们犹如天上的星星独处一世界，他们还有一个共同的名字——自闭症儿童。
+				</p>
+				<img src="/BBS-shop/images/about.jpg" class="img-responsive" alt="Hair Salon">
+				<div class="w3l-slider-img">
+					<img src="/BBS-shop/images/a1.jpg" class="img-responsive" alt="Hair Salon">
+				</div>
+				<div class="w3ls-info-about">
+					<h4>点击这里加入我们传播爱！</h4>
+					<p>让大家的爱心来温暖他们的孤独</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!-- //about -->
+
+	<!--论坛页展示-->
+	<div class="w3-news">
+		<div class="container">
+			<div class="w3layouts_head">
+				<a>
+					<h3 class="tittle" href="/BBS/show_post_html">我们的论坛</h3>
+				</a>
+				<div class="border"></div>
+			</div>
+			<div class="news-info">
+				<div class="col-md-6 event-grids">
+					<div class="w3layouts-text">
+						<h4>经验贴<span></span></h4>
+						<h6><a href="#" >作为心理医生，谈自闭症治疗</a></h6>
+						<div class="clearfix"> </div>
+					</div>
+					<p>{{jy.帖子内容}}</p>
+				</div>
+				<div class="col-md-6 event-grids">
+					<div class="w3layouts-text">
+						<h4>科普贴<span></span></h4>
+						<h6><a href="#" v-html="kp.帖子标题" @click="look(1)">自闭症可能不只是大脑疾病
+							</a></h6>
+						<div class="clearfix"> </div>
+					</div>
+					<p>{{kp.帖子内容}}</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="news-info news-agileinfo2">
+				<div class="col-md-6 event-grids">
+					<div class="w3layouts-text">
+						<h4>求助贴<span></span></h4>
+						<h6><a href="#" v-html="qz.帖子标题" @click="look(2)">一位自闭症儿童妈妈的泣血求助</a></h6>
+						<div class="clearfix"> </div>
+					</div>
+					<p>{{qz.帖子内容}}</p>
+				</div>
+				<div class="col-md-6 event-grids">
+					<div class="w3layouts-text">
+						<h4>交流贴<span></span></h4>
+						<h6><a href="#" v-html="jl.帖子标题" @click="look(3)">怎么和自闭症孩子交流</a></h6>
+						<div class="clearfix"> </div>
+					</div>
+					<p>{{jl.帖子内容}}</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- 义卖页展示 -->
+	<div class="w3l-visitors-agile" id="shop">
+		<div class="container">
+			<div class="w3layouts_head">
+				<a>
+					<h3 class="tittle" href="/Charity_sale/open_sale">我们的义卖</h3>
+				</a>
+				<div class="border"></div>
+			</div>
+		</div>
+		<div class="w3layouts_work_grids" >
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides" v-if="goodslist">
+						<li>
+							<div class="w3layouts_work_grid_left">
+								<img src="/BBS-shop/images/3.jpg" alt=" " class="cimg-responsive" id="one"  />
+								<div class="w3layouts_work_grid_left_pos">
+									<img src="/BBS-shop/images/y1.jpg" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="w3layouts_work_grid_right">
+								<a>
+									<h4>
+										水底小鱼
+									</h4>
+								</a>
+								<p>这是苏欣兰小朋友3岁的时候去水族馆，回到家做的作品，让我看到了治愈的希望</p>
+								<h5>苏欣兰</h5>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</li>
+						<li>
+							<div class="w3layouts_work_grid_left">
+								<img src="/BBS-shop/images/2.jpg" alt=" " class="img-responsive" />
+								<div class="w3layouts_work_grid_left_pos">
+									<img src="/BBS-shop/images/y2.jpg" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="w3layouts_work_grid_right">
+								<a>
+									<h4>
+										拥抱大自然
+									</h4>
+								</a>
+								<p>与大自然相拥，虽然小朋友生病了，但是依旧像探索这个世界！</p>
+								<h5>张律</h5>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</li>
+						<li>
+							<div class="w3layouts_work_grid_left">
+								<img src="/BBS-shop/images/1.jpg" alt=" " class="img-responsive" />
+								<div class="w3layouts_work_grid_left_pos">
+									<img src="/BBS-shop/images/y3.jpg" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="w3layouts_work_grid_right">
+								<a>
+									<h4>
+										孔雀开屏
+									</h4>
+								</a>
+								<p>小朋友从动物园回来后的画作，星星的孩子就是不一样</p>
+								<h5>刘冰迪</h5>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</li>
+						<li>
+							<div class="w3layouts_work_grid_left">
+								<img src="/BBS-shop/images/2.jpg" alt=" " class="img-responsive" />
+								<div class="w3layouts_work_grid_left_pos">
+									<img src="/BBS-shop/images/y4.jpg" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="w3layouts_work_grid_right">
+								<a>
+									<h4>
+										花束
+									</h4>
+								</a>
+								<p>这是小朋友在母亲节给我做的花，真是很有纪念意义</p>
+								<h5>王璐</h5>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!-- Footer -->
+	<!-- Footer -->
+	<div class="w3l-footer">
+		<div class="container">
+			<div class="footer-info-agile">
+				<ul>
+					<li class="lb">
+						<div class=" links">
+							<h4>快速导航</h4>
+							<ul>
+								 <li><a href="/webxxdd/">主页</a></li>
+								<li><a href="/activity/">活动</a></li>
+								<li><a href="/BBS/show_post_html">论坛页</a></li>
+								<li></li><a href="/Charity_sale/open_sale">义卖页</a>
+					</li>
+					<li><a  href="/user_apply_data/openmine">个人主页</a></li>
+				</ul>
+			</div>
+			</li>
+			<li class="lb">
+				<div class=" address">
+					<h4>地址</h4>
+					<ul>
+						<li>上海市</li>
+						<li>同济大学</li>
+						<li>嘉定校区</li>
+					</ul>
+			</li>
+			<li class="lb">
+				<div class="connect-social">
+					<h4>合作伙伴</h4>
+					<section class="social">
+						<ul>
+							  <li><a class="icon fb" href="https://www.asd-home.cn/Home/Zbindex/about.html"></a><span>自闭症家园网</span>
+                            </li>
+							<li><a class="icon tw" href="https://www.cswef.org/cswef/welfarepro/detail/id/99.html"></a><span>中国社会福利基金会</span></li>
+							<li><a class="icon pin" href="http://www.autism.com.cn/"></a><span>北京孤独症儿童康复协会</span></li>
+							
+						</ul>
+					</section>
+			</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<div class="clearfix"></div>
+	</div>
+
+	</div>
+	</div>
+	<div class="copy">
+		<p>Copyright &copy; 2021.Light Stars All rights reserved</p>
+	</div>
+	<!-- js -->
+	<script src="/BBS-shop/js/index.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/BBS-shop/js/jquery-2.1.4.min.js"></script>
+	<!--轮播图 -->
+	<script type="text/javascript" src="/BBS-shop/js/move-top.js"></script>
+	<script type="text/javascript" src="/BBS-shop/js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+		  var userID=document.getElementById("session").innerHTML;
+            var send_data={
+                "userID":userID,
+                  "csrfmiddlewaretoken":"{{ csrf_token }}"
+            }
+            $.ajax(
+                {
+                    type:"post",
+                    url:"/gettouxiang/",
+                    datatype:"json",
+                    data:send_data,
+                    success:function(data){
+                     document.getElementById("touxiang").src=data
+                    }
+                }
+            )
+	</script>
+	<!--轮播图 -->
+	<!-- 义卖 -->
+	<script defer src="/BBS-shop/js/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+		$(window).load(function () {
+			$('.flexslider').flexslider({
+				animation: "slide",
+				start: function (slider) {
+					$('body').removeClass('loading');
+				}
+			});
+		});
+	</script>
+	<!-- //义卖 -->
+	<script src="/BBS-shop/js/responsiveslides.min.js"></script>
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider4").responsiveSlides({
+				auto: true,
+				pager: true,
+				nav: false,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+	</script>
+	<!--search-bar-->
+	<script src="/BBS-shop/js/main.js"></script>
+	<!--//search-bar-->
+
+	<!-- smooth scrolling -->
+<!--	<script type="text/javascript">-->
+<!--		$(document).ready(function () {-->
+<!--			/*-->
+<!--				var defaults = {-->
+<!--				containerID: 'toTop', // fading element id-->
+<!--				containerHoverID: 'toTopHover', // fading element hover id-->
+<!--				scrollSpeed: 1200,-->
+<!--				easingType: 'linear' -->
+<!--				};-->
+<!--			*/-->
+<!--			$().UItoTop({ easingType: 'easeOutQuart' });-->
+<!--		});-->
+<!--	</script>-->
+	<div class="arr-w3ls">
+		<a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+	<!-- //smooth scrolling -->
+	<script type="text/javascript" src="/BBS-shop/js/bootstrap-3.1.1.min.js"></script>
+	<script src="/BBS-shop/js/head.js" type="text/javascript"></script>
+</body>
+
+</html>

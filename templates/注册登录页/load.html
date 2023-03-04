@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>星星点灯-登录</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="小星.ico" type="image/x-icon" >
+    <script src="vue.js"></script>
+   <link rel="stylesheet" href="base.css">
+ 
+</head>
+<body>
+    <header>
+        <!-- 快捷菜单  -->
+        <div class="post-shortcut">
+          <nav class="container">
+            <ul class="fr">
+            
+              <li ><a href="#">登录</a>|</li>
+              <li><a href="#">注册</a>|</li>
+              <li><a href="#">帮助中心</a>|</li>
+              <li><a href="#">在线客服</a></li>
+            </ul>
+          </nav>
+         </div>
+        </header>
+    <div id="主体">
+    <!-- <div class="left"></div> -->
+    <div id="content" class="container"><!-- 中间部分 -->
+        <p>请选择身份进行注册：</p>  <br>
+        <div id="tab_bar">
+            <ul>
+                <li id="tab1" class="li" onclick="myclick(1)" style="background-color: darkslategray">
+                    志愿者
+                </li>
+                <li id="tab2" class="li" onclick="myclick(2)">
+                    患病儿童监护人
+                </li>
+                <li id="tab3" class="li" onclick="myclick(3)">
+                    社会组织
+                </li>
+            </ul>
+        </div>
+        <br>
+        <div class="tab_css" id="tab1_content" style="display: block">
+            <div id="vol" class='in'>         
+                <!-- <img src="img/图片.png" alt="" sizes="400px,250px">          -->
+                <form>
+                    <br>  
+                    用户ID： <input type="text" v-model='id' ><br><br>
+                    密码：<input type="password" v-model="psw" ><br><br>
+                    确认密码：<input type="password" v-model="psw1" @focus="init" @blur="pass" >       
+                     <div v-show=bool style="color:red;font-size: small;">{{warnning}}</div><br v-show=!bool><br>
+                    邮箱：<input type="text" v-model='emi' @blur='emil'@focus="init2">         
+                    <div v-show=bool2 style="color:red;font-size: small;" >{{warnning2}}</div><br v-show=!bool2><br>
+                    <!-- 验证格式2 -->
+                    手机号：<input type="text" v-model='pal' @blur='phn'@focus="init3">
+                    <div v-show=bool3 style="color:red;font-size: small;">{{warnning3}}</div><br v-show=!bool3><br>
+                      <!-- 验证格式3 -->
+                   <button type="button" value="注册" class="button" >注册</button>
+                  
+                </form>
+            </div>
+        </div>
+        <div class="tab_css" id="tab2_content">
+            <div id="chd" class='in'>
+                        <br>
+                        用户ID： <input type="text" ><br><br>
+                        密码：<input type="password"  v-model="psw"><br><br>
+                        确认密码：<input type="password"v-model="psw1" @focus="init" @blur="pass"> 
+                        <div v-show=bool style="color:red;font-size: small;">{{warnning}}</div><br v-show=!bool><br>
+                        邮箱：<input type="text" v-model='emi' @blur='emil'@focus="init2">         
+                        <div v-show=bool2 style="color:red;font-size: small;" >{{warnning2}}</div><br v-show=!bool2><br>
+                        <!-- 验证格式2 -->
+                        手机号：<input type="text" v-model='pal' @blur='phn'@focus="init3">
+                        <div v-show=bool3 style="color:red;font-size: small;">{{warnning3}}</div><br v-show=!bool3><br>
+                        <!-- 验证格式3 -->
+                        患病儿童姓名：<input type="text" v-model="childname"><br><br>
+                        家庭年收入：<input type="text" v-model="income"><br><br>
+                        居住城市： <input type="text" v-model="city"><br><br> 
+                        <button type="button" class="button">注册</button>
+            </div>
+        </div>
+        
+        <div class="tab_css" id="tab3_content">
+            <div id="grp"  class='in'>
+                <form action="">
+                 组名ID:<input type="text" v-model='teamid'><br><br>
+                 组织名称：<input type="text" v-model='teamname'><br><br>
+                 密码：<input type="password" v-model="psw" ><br><br>
+                    确认密码：<input type="password" v-model="psw1" @focus="init" @blur="pass" >       
+                     <div v-show=bool style="color:red;font-size: small;">{{warnning}}</div><br v-show=!bool><br>
+                    邮箱：<input type="text" v-model='emi' @blur='emil'@focus="init2">         
+                    <div v-show=bool2 style="color:red;font-size: small;" >{{warnning2}}</div><br v-show=!bool2><br>
+                    <!-- 验证格式2 -->
+                    手机号：<input type="text" v-model='pal' @blur='phn'@focus="init3">
+                    <div v-show=bool3 style="color:red;font-size: small;">{{warnning3}}</div><br v-show=!bool3><br>
+                      <!-- 验证格式3 -->
+                 组织类型：<input type="text" v-model='grouptype'><br><br>
+                 组织描述：<textarea name="des"  cols="45" rows="3" v-model='groupdes'></textarea><br><br>
+                 <button type="button" class="button">注册</button>
+                </form>
+           
+        </div>
+    </div>
+    <!-- <div class="right"></div> -->
+</div>
+    <script>
+      var myclick = function(v) {
+				var llis = document.getElementsByClassName("li");
+				for(var i = 0; i < llis.length; i++) {
+					var lli = llis[i];
+					if(lli == document.getElementById("tab" + v)) {
+						lli.style.backgroundColor ="darkslategray";
+					} else {
+						lli.style.backgroundColor = "gray";
+					}
+				}
+ 
+				var divs = document.getElementsByClassName("tab_css");
+				for(var i = 0; i < divs.length; i++) {
+ 
+					var divv = divs[i];
+ 
+					if(divv == document.getElementById("tab" + v + "_content")) {
+						divv.style.display = "block";
+					} else {
+						divv.style.display = "none";
+					}
+				}
+ 
+                
+			}
+        </script>
+        
+        <script>
+        var zhi=new Vue
+        (
+           {
+               el:'#vol',
+
+               data:
+               {id:'',
+               psw:'',
+               psw1:'',
+               emi:'',
+               pal:'',
+               warnning:'两次输入密码不一样',warnning2:'邮箱格式有误',warnning3:'手机号格式有误',
+               bool:false,bool2:false,bool3:false
+               },
+              
+               methods:
+             {
+                 pass:function()
+
+                 {  
+                     if (this.psw!=this.psw1)//password
+                         {this.bool=!this.bool;
+                        }
+                       
+                   console.log(this.id);
+                 },
+
+             
+                 emil:function()
+                 {
+                    var regEmail= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/ ;
+                        
+                        if(!regEmail.test(this.emi))
+                       {
+                       this.bool2=!this.bool2;
+                       }
+                 },
+                 phn :function()
+                 {
+                    var regEmail=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/ ;
+                        
+                        if(!regEmail.test(this.pal))
+                       {
+                       this.bool3=!this.bool3;
+                       }
+                 }   ,
+                init:function(){this.bool=false;},
+                init2:function(){this.bool2=false;},
+                init3:function(){this.bool3=false;},
+
+             
+             }
+            }
+        )
+        var jia=new Vue
+        (
+            {
+               el:'#chd',
+
+               data:
+               {id:'',
+               psw:'',
+               psw1:'',
+               emi:'',
+               pal:'',
+               childname:'',
+               income:'',
+               city:'',
+               warnning:'两次输入密码不一样',warnning2:'邮箱格式有误',warnning3:'手机号格式有误',
+               bool:false,bool2:false,bool3:false
+               },
+              
+               methods:
+             {
+                 pass:function()
+
+                 {  
+                     if (this.psw!=this.psw1)//password
+                         {this.bool=!this.bool;
+                        }
+                       
+                   console.log(this.id);
+                 },
+
+             
+                 emil:function()
+                 {
+                    var regEmail= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/ ;
+                        
+                        if(!regEmail.test(this.emi))
+                       {
+                       this.bool2=!this.bool2;
+                       }
+                 },
+                 phn :function()
+                 {
+                    var regEmail=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/ ;
+                        
+                        if(!regEmail.test(this.pal))
+                       {
+                       this.bool3=!this.bool3;
+                       }
+                 }   ,         
+                init:function(){this.bool=false;},
+                init2:function(){this.bool2=false;},
+                init3:function(){this.bool3=false;}
+             
+             }
+            }
+        )
+        var zhu=new Vue
+        (
+            {
+               el:'#grp',
+
+               data:
+               {teamid:'',
+               teamname:'',
+               psw:'',
+               psw1:'',
+               emi:'',
+               pal:'',
+               grouptype:'',
+               groupdes:'',
+               warnning:'两次输入密码不一样',warnning2:'邮箱格式有误',warnning3:'手机号格式有误',
+               bool:false,bool2:false,bool3:false
+               },
+              
+               methods:
+             {
+                 pass:function()
+
+                 {  
+                     if (this.psw!=this.psw1)//password
+                         {this.bool=!this.bool;
+                        }
+                       
+                   console.log(this.id);
+                 },
+
+             
+                 emil:function()
+                 {
+                    var regEmail= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/ ;
+                        
+                        if(!regEmail.test(this.emi))
+                       {
+                       this.bool2=!this.bool2;
+                       }
+                 },
+                 phn :function()
+                 {
+                    var regEmail=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/ ;
+                        
+                        if(!regEmail.test(this.pal))
+                       {
+                       this.bool3=!this.bool3;
+                       }
+                 }   ,         
+                init:function(){this.bool=false;},
+                init2:function(){this.bool2=false;},
+                init3:function(){this.bool3=false;}
+             
+             }
+            }
+        )
+        
+
+    </script>
+        <script type="text/javascript">
+        function add() {
+            // 获取数据
+            console.log("1234567");
+            var username = $("#id").val();
+            $.ajax({
+                url:"user_data/username/"+username,
+                type:"get",
+                dataType:"json",
+                success:function (data) {
+                    if (data.data.count === 0) {
+
+                    } else {
+                        $("#id").text(username + "已存在，请重新输入");
+                    }
+                }
+            })
+                    }
+        </script>
+
+</body>
+<div>
+    <p>
+        <button id="id",onclick="add()">注册</button>
+    </p>
+</div>
+            
+</html>

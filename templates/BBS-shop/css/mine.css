@@ -1,0 +1,454 @@
+
+html, body{
+	margin:0;
+	font-size: 100%;
+	font-family: 'Lato', sans-serif;
+	background: #fff;
+}
+body a {
+	text-decoration:none;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+a:hover{
+ text-decoration:none;
+}
+input[type="button"],input[type="submit"]{
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+	font-family: 'Federo', sans-serif;
+    font-weight: 400;
+}	
+p{
+	margin:0;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+label{
+	margin:0;
+}
+/* 个人主页布局 */
+.service-w3l {
+    padding: 5em 0;
+}
+.w3layouts_head {
+    margin-bottom: 5em;
+}
+.wel-grid {
+    padding: 0;
+}
+.wel-left {
+    float: left;
+    width: 32.3%;
+}
+.wel-grid1 {
+    background: #01a2a6;
+    padding: 4em 0;
+    margin-top: 5.5em;
+}
+.wel-grid1 h4 {
+    font-size: 3em;
+    color: #fff;
+}
+.wel-grid1 h5 {
+    font-size: 2em;
+    padding: .5em 0;
+    color: #f36371;
+}
+.wel-grid1 p {
+    font-size: 1em;
+    line-height: 2em;
+    color: #eee;
+}
+.wel-grids,.service-grids,.prices-grids,.biography-grids {
+    margin-top: 4em;
+}
+.wel-grid img {
+    width: 100%;
+    border: 7px solid#34495E;
+    padding: .5em;
+}
+.border {
+    width: 110px;
+    background: #f36371;
+    display: block;
+    height: 3px;
+    margin: 0.5em auto 0;
+}
+h3.tittle {
+    color: #01a2a6;
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.con i {
+    font-size: 2em;
+    color: #fff;
+    padding: 1em;
+    border: 1px solid #01a2a6;
+    cursor: pointer;
+    top: 0;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    transition: .5s all;
+    -o-transform: .5s all;
+}
+.con i:hover {
+    color: #f36371;
+}
+.ser-grid h4 {
+    font-size: 1.3em;
+    padding: 1em 0 0.5em;
+    color: #f36371;
+    text-transform: uppercase;
+}
+.con i:hover {
+    color: #fff;
+    background: #f36371;
+    border: 1px solid #f36371;
+}
+.ser-grid p {
+    line-height: 1.8em;
+    font-size: 1em;
+    color: #777;
+}
+/* Shutter In Horizontal */
+.hvr-shutter-in-horizontal {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background: #fff;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-shutter-in-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #01a2a6;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-shutter-in-horizontal:hover, .hvr-shutter-in-horizontal:focus, .hvr-shutter-in-horizontal:active {
+  color: white;
+}
+.hvr-shutter-in-horizontal:hover:before, .hvr-shutter-in-horizontal:focus:before, .hvr-shutter-in-horizontal:active:before,.services-bottom-left:hover .hvr-shutter-in-horizontal:before{
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}
+.service-w3l .shead{
+	height: 347px;
+}
+.w3layouts_head .info{
+    margin: 0 auto;
+    height: 300px;
+    width: 715px;
+
+}
+.w3layouts_head .ava{
+	height: 300px;
+	width: 300px;
+}
+.w3layouts_head .cinfo{
+	float: left;
+	margin: 83px 50px;
+}
+.w3layouts_head .pic{
+	width: 100%; 
+	height: 100%; 
+	border-radius: 100%; 
+	transition: all 0.4s ease-in-out; 
+	transform: scale(1); 
+	background-size: cover; 
+	background-position: 50% 50%; 
+	background-repeat: no-repeat;
+}
+.w3layouts_head .info p{
+    font-size: 30px;
+    font-weight: 400;
+}
+/* 个人信息修改页弹窗 */
+.modal-dialog1 input{
+    margin: 10px 0px;
+    display: block;
+    width: 230px;
+    outline: none;
+    color: #333;
+    border: 1px solid black;
+}
+.modal-dialog1 textarea{
+    width: 230px;
+    resize:none;
+}
+.modal-dialog1 .modal-content {
+    width: 294px;
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    right: -632px;
+    top: 100px;
+}
+.modal-dialog1 .sub{
+    border: 1px solid black;
+    margin-left: 180px;
+    margin-bottom: 1px;
+}
+/* 查看点赞页弹窗 */
+.modal-dialog2 .slike{
+    width: 1000px;
+}
+.modal-dialog2 h3{
+ display:inline-block;
+}
+.modal-dialog2 a:hover{
+    color: #999;
+   }
+.modal-dialog2 li{
+    margin: 20px 95px;
+}
+.modal-dialog2 .modal-content{
+    position: relative;
+    left: 400px;
+    top: 150px;
+    width: 800px;
+}
+/* 查看收藏页弹窗 */
+.modal-dialog3 .slike{
+    width: 1000px;
+}
+.modal-dialog3 h3{
+ display:inline-block;
+}
+.modal-dialog3 a:hover{
+    color: #999;
+   }
+.modal-dialog3 li{
+    margin: 20px 95px;
+}
+.modal-dialog3 .modal-content{
+    position: relative;
+    left: 400px;
+    top: 150px;
+    width: 800px;
+}
+/* 查看活动页弹窗 */
+.modal-dialog4 .slike{
+    width: 1000px;
+}
+.modal-dialog4 a:hover{
+    color: #999;
+   }
+.modal-dialog4 li{
+    margin: 20px 95px;
+}
+.modal-dialog4 .slike h3{
+    display: inline-block;
+}
+.modal-dialog4 .slike h5{
+    font-size: 20px;
+    margin-top: 0px;
+    color: #333;
+}
+.modal-dialog4 .modal-content{
+    position: relative;
+    left: 400px;
+    top: 150px;
+    width: 800px;
+}
+.modal-dialog4 .modal-content-ac{
+    position: relative;
+left: 400px;
+top: 150px;
+width: 1010px;
+}
+
+.modal-dialog4 .slike1{
+    width: 1000px;
+}
+.modal-dialog4 .slike1 h3{
+    margin-left:95px ;
+    display: inline-block;
+}
+.modal-dialog4 .slike1 h5{
+    font-size: 20px;
+    margin-top: 0px;
+    color: #333;
+}
+/* 身份认证页弹窗 */
+.modal-dialog5 input{
+    margin: 10px 0px;
+    display: block;
+    width: 230px;
+    outline: none;
+    color: #333;
+    border: 1px solid black;
+}
+.modal-dialog5 textarea{
+    width: 230px;
+    resize:none;
+}
+.modal-dialog5 .modal-content {
+    width: 294px;
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    right: -632px;
+    top: 100px;
+}
+.modal-dialog5 .sub{
+    border: 1px solid black;
+    margin-left: 180px;
+    margin-bottom: 1px;
+}
+.modal-dialog5 .done span{
+    color: #01a2a6;
+    transition: all 1s;
+}
+.modal-dialog5 .done span:hover{
+    color: #f36371;
+    cursor: pointer;
+}
+/* 查看我的帖子页弹窗 */
+.modal-dialog6 .slike{
+    width: 1000px;
+}
+.modal-dialog6 a:hover{
+    color: #999;
+   }
+.modal-dialog6 li{
+    margin: 20px 95px;
+}
+.modal-dialog6 .modal-content{
+    position: relative;
+    left: 400px;
+    top: 22px;
+    width: 800px;
+}
+/* 查看我的评论与回复弹窗 */
+.modal-dialog7 .slike{
+    width: 1000px;
+}
+.modal-dialog7 a:hover{
+    color: #999;
+   }
+.modal-dialog7 li{
+    margin: 20px 95px;
+}
+.modal-dialog7 .slike p{
+    font-size: 20px;
+    padding-top: 5px;
+}
+.modal-dialog7 .slike span{
+    color: #999;
+    font-size: 15px;
+}
+.modal-dialog7 .modal-content{
+    position: relative;
+    left: 400px;
+    top: 22px;
+    width: 800px;
+}
+.modal-dialog7 .switch{
+    transition: all 1s;
+    margin-left: 94px;
+    height: 34px;
+    width: 115px;
+}
+.modal-dialog7 .switch div{
+    position: relative;
+    line-height: 34px;
+    margin-left: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    border-radius: 100%;
+    background-color: rgb(250, 8, 8);
+}
+.modal-dialog7 .switch span{
+    color: white;
+    font-size: 10px;
+    position:absolute;
+    top: -8px;
+    left: 1px;
+}
+/* 查看我的义卖弹窗 */
+.modal-dialog8 .slike{
+    width: 1000px;
+}
+.modal-dialog8 a:hover{
+    color: #999;
+   }
+.modal-dialog8 li{
+    margin: 20px 95px;
+}
+.modal-dialog8 .modal-content{
+    position: relative;
+    left: 400px;
+    top: 22px;
+    width: 800px;
+}
+.modal-dialog8 .slike .gc{
+    margin-top: 10px;
+}
+.modal-dialog8 .slike button{
+    margin: 0 10px;
+}
+.modal-dialog8 input{
+    margin: 10px 0px;
+    display: block;
+    width: 430px;
+    outline: none;
+    color: #333;
+    border: 1px solid black;
+}
+.modal-dialog8 textarea{
+    width: 430px;
+    resize:none;
+}
+.modal-dialog8 .edit .pshow{
+    display: inline-block;
+    position: absolute;
+    top: 82px;
+    left: 512px;
+}
+.modal-dialog8 .edit  img{
+    width: 200px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="article">{{data.article}}</span>
+<img id="1"  src="{{data.piclist.活动图片.url}}" alt="图片加载失败"/>
+
+
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+ <script type="text/javascript">
+window.onload=function ()
+{
+    var url=decodeURI(window.location.href);
+    function show(){
+    $.ajax(
+       {
+            url:url,
+            type:"get",
+            dataType:"json",
+            success:function (res){
+                alert(res);
+            }
+
+        }
+    )}
+    show();
+}
+
+
+
+ </script>
+</body>
+</html>

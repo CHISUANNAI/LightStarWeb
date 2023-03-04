@@ -1,0 +1,124 @@
+.container{
+    width: 1240px;
+    margin: 0 auto;
+}
+/* post-header */
+
+.logo{
+    height: 70px;
+    width: 285px;
+    background: url("../images/logo.png") -5px -5px;
+    background-size: 100%;
+}
+.post-shortcut{
+    height: 70px;
+    background-color: #01a2a6;
+}
+.post-shortcut .right li:first-child:hover{
+    cursor: default;
+    background-color: #01a2a6;
+}
+.post-shortcut .container{
+    height: 70px;
+}
+.post-shortcut  ul li{
+    float: left;
+    line-height: 70px;
+    color: white;
+}
+.post-shortcut ul li a{
+    display: inline-block;
+    height: 70px;
+    width: 80px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+.post-shortcut .right a{
+    text-align: center;
+    line-height: 70px;
+    height: 70px;
+    display: inline-block;
+    font-weight: 100;
+    color: white;
+    width: 100px;
+}
+.post-shortcut .right a:hover{
+    background-color: #006c6f;
+    color: #f36371;
+}
+
+.post-shortcut li a:hover{
+    background-color: #006c6f;
+    color: #f36371;
+}
+
+.post-shortcut .right .oava:hover{
+    background-color: #01a2a6;
+}
+
+/* .post-shortcut li:last-child a{
+    margin-right: 0;
+} */
+/* .post-shortcut .left li:nth-child(1) a{
+    margin-right: 0px;
+} */
+/* .left li:first-child{
+    margin-right: 16px;
+} */
+.post-shortcut .right span{
+    color: white;
+    margin-right: 16px;
+    font-size: 18px;
+}
+.ava{
+    transition: all 1s;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.small{
+    transition: all 1s;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.big{
+    transition: all 1s;
+    display: inline-block;
+    height: 150%;
+    width: 150%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: -18px;
+    z-index: 99;
+}
+/* 头像小卡片 */
+.card{
+    height: 120px;
+    width: 200px;
+    position: fixed;
+    right: 512px;
+    top: 100px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    background-color: #01a2a6;
+    border-radius: 5%;
+    z-index: 99;
+}
+.card li{
+    margin-left: 30px;
+    line-height: 30px;
+    color: white;
+}
+.card li a{
+    color:white
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>星星点灯-登录</title>
+    <link rel="stylesheet" href="/login/CSS/style.css">
+     <link rel="stylesheet" href="/login/CSS/base.css">
+    <link rel="shortcut icon" href="小星.ico" type="image/x-icon" >
+    <script src="vue.js"></script>
+   <link rel="stylesheet" href="/login/CSS/base.css">
+
+   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+   <meta name="description" content="星星点灯网，致力于关爱自闭症人群">
+   <meta name="keywords" content="自闭症，关爱，志愿者">
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   <!-- <link rel="stylesheet" href="/css/base.css">
+ <link rel="stylesheet" href="/css/head.css"> -->
+   <link rel="stylesheet" href="/login/CSS/base.css">
+   <link rel="stylesheet" href="/login/CSS/head.css">
+   <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <!-- 官网提供的 axios 在线地址 -->
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body> 
+   <header id="head">
+        <!-- 快捷菜单  -->
+        <div class="post-shortcut">
+            <nav class="container">
+                <div class="logo fl">
+                </div>
+                <ul class="left fl">
+                   <li><a href="/webxxdd/">主页</a></li>
+                    <li><label><span><a href="/activity/">活动</a></span></label></li>
+                    <li><label><span><a href="./post.html">论坛</a></span></label></li>
+                    <li><label><span><a href="#">义卖</a></span></label></li>
+                </ul>
+                <ul class="right fr">
+                                      {% if request.session.is_login %}
+                     <label><span><a href="#">
+                                    <div class="ava"><img id="touxiang" alt=""
+                                            class="small"></div>
+                                </a></span></label><span id="session">{{ request.session.userID }}</span></li>
+                    <label><span><a href="/user_data/logout/">退出登录</a></span></label></li>
+                    <label><span><a href="/user_apply_data/openmine">个人主页</a></span></label></li>
+                    {% else %}
+                   <li ><label><span><a href="/user_data/login/">未登录</a></span></label></li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        </div>
+<!--        {% if request.session.is_login %}-->
+<!--        <div class="card" v-if="cardShow" @mouseleave="cardLoad">-->
+<!--            <ul>-->
+
+<!--                <li>监护人</li>-->
+<!--                <li><a href="#">收到的消息</a></li>-->
+<!--                <li><a href="#">收到的回复</a></li>-->
+<!--                <li><a href="#">待办的活动</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        {% endif %}-->
+    </header>
+    <div id="主体" class="container2" >
+        <!-- <div id='pic'> -->
+        <!-- <img src="img/自闭海报43.png" alt="" width="450" height="600"> -->
+
+
+
+    <div id="content" ><!-- 中间右边部分 -->
+
+
+       <div class="tab_css" id="chd">
+        <div class="login_titles">志愿者注册</div>
+        <div class="login_message">
+            <div id="login_message">提示信息</div>
+        </div>
+        <div class="login_user">
+
+            <input id="username" type="text" placeholder="请输入ID"  maxlength="8" onblur="add()" >
+            <br id="space"><span id="hint" style="color: red;font-size: smaller;"></span><br>
+        </div>
+        <div class="login_pwd login_user">
+
+            <input id="password" type="password" placeholder="请输入密码" maxlength="128">
+        </div>
+        <div class="login_pwd login_user">
+
+            <input id="password2" type="password" placeholder="请再次输入密码" maxlength="128"  onblur="pass1()">
+            <br id="space2"><span id="hint2" style="color: red;font-size: smaller;"></span><br>
+        </div>
+        <div class="login_pwd login_user">
+
+            <input id="email" type="text" onblur="pass2()" placeholder="请输入邮箱" >
+            <br id="space3"><span id="hint3" style="color: red;font-size: smaller;"></span><br>
+        </div>
+        <div class="login_pwd login_user">
+
+            <input  id="mobile" type="text"  maxlength="11" onblur="pass3()" onblur="add2()" placeholder="请输入手机号">
+           <br id="space4"><span id="hint4" style="color: red;font-size: smaller;"></span><br>
+        </div>
+
+        <div class="login_submit" onclick="register()">
+            <br><div>注册</div>
+        </div>
+
+        <!-- <form class="forma">
+            用户ID： <input id="username" type="text"  maxlength="8" onblur="add()" ><br>
+            <span id="hint" style="color: red;font-size: small;"></span><br>
+
+            密码：<input  id="password" type="password" maxlength="128" ><br><br>
+
+            确认密码：<input  id="password2" type="password" maxlength="128" onblur="pass1()" ><br>
+             <span id="hint2" style="color: red;font-size: small;"></span><br>
+
+             邮箱：<input id="email" type="text" onblur="pass2()"><br>
+            <span id="hint3" style="color: red;font-size: small;"></span><br>
+
+
+            手机号：<input  id="mobile" type="text"  maxlength="11" onblur="pass3()" onblur="add2()"><br>
+              <span id="hint4" style="color: red;font-size: small;"></span><br>
+
+           <button type="button" value="注册" class="button" onclick="register()">注册</button><br>
+           <span id="hint5" style="color: red;font-size: small;"></span>
+        </form>-->
+    </div> </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+ <script type="text/javascript">
+function pass1(){
+    var psw=$("#password").val();
+    var psw2= $("#password2").val();
+    if(psw!=psw2)
+    {　
+        $("#hint2").text("两次输入密码不一样，请重新输入");
+        document.getElementById("space2").style.display="block";
+        $("#password").focus();
+        return false;
+    }
+    if(psw=psw2)
+    {
+        $("#hint2").text("");
+        document.getElementById("space2").style.display="none";
+    }
+
+
+}
+function pass2(){
+　　var myemail=$("#email").val();
+　　var myReg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+
+　　if(!myReg.test(myemail)){
+　　　　$("#hint3").text("请输入正确的邮箱");
+document.getElementById("space3").style.display="block";
+       $("#email").focus();
+       return false;}
+      if(myReg.test(myemail))
+      {
+          　$("#hint3").text("");
+          document.getElementById("space3").style.display="none";
+      }
+}
+
+function pass3(){
+    var myphone=$("#mobile").val();
+    var myReg=/^(13[0-9]{9})|(15[0-9]{9})|(17[0-9]{9})|(18[0-9]{9})|(19[0-9]{9})$/;
+    if (!myReg.test(myphone)){
+    $("#hint4").text("请输入正确的手机号");
+    document.getElementById("space4").style.display="block";
+    $("#mobile").focus();
+    return false;}
+     if (myReg.test(myphone)){
+          $("#hint4").text("");
+          document.getElementById("space4").style.display="none";
+     }
+}
+
+
+     function add() {
+            // 获取数据
+            var username = $("#username").val();
+            $.ajax({
+                url:"/user_data/username/?username="+username,
+                type:"get",
+                dataType:"json",
+                success:function (data) {
+                    if (data.count === 0) {
+                        $("#hint").text(username + "未注册,可以使用");
+                        document.getElementById("space").style.display="block";
+                    } else {
+                        $("#hint").text(username + "已被注册，请重新输入");
+                        document.getElementById("space").style.display="block";
+                    }
+                }
+            })}
+   function add2() {
+            // 获取数据
+            var mobile = $("#mobile").val();
+            $.ajax({
+                url:"/user_data/mobile/?mobile="+mobile,
+                type:"get",
+                dataType:"json",
+                success:function (data) {
+                    if (data.count === 0) {
+                        $("#hint4").text("手机号"+mobile + "未注册,可以使用");
+                    } else {
+                        $("#hint4").text("手机号"+mobile + "已被注册，请重新输入");
+                    }
+                }
+            })}
+
+
+  function register() {
+            // 获取数据
+             var username = $("#username").val();
+            var mobile = $("#mobile").val();
+             var email =$("#email").val();
+             var password =$("#password").val();
+             var type='Vol';
+             var send_data={
+                 "userID":username,
+                 "password":password,
+                 "mobile":mobile,
+                 "email":email,
+                 "type":type,
+                 "csrfmiddlewaretoken":"{{ csrf_token }}"
+             };
+            $.ajax({
+                url:"success/",
+                type:"post",
+                dataType:"json",
+                data:send_data,
+                success:function (data) {
+                    if (data.code=== 0) {
+                        alert(data.message);
+                        setTimeout(function () {
+                        //注册成功后1.5s重定向到登录页面
+                        window.location.href='/user_data/login/'
+                    }, 1000)
+                        }
+                    else
+                        alert(data.message);}
+                })
+ }
+  var userID=document.getElementById("session").innerHTML;
+            var send_data={
+                "userID":userID,
+                  "csrfmiddlewaretoken":"{{ csrf_token }}"
+            }
+            $.ajax(
+                {
+                    type:"post",
+                    url:"/gettouxiang/",
+                    datatype:"json",
+                    data:send_data,
+                    success:function(data){
+                     document.getElementById("touxiang").src=data
+                    }
+                }
+            )
+</script>
+
+</body>
+            
+</html>

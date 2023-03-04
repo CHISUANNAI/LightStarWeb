@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />    
+    <!--[if gt IE 8]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />        
+    <![endif]-->                
+    <title>Aries - Metro Style Admin Panel</title>
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
+    <link rel="stylesheet" href="/Administrator/css/fenye.css">
+    <link href="/Administrator/css/stylesheets.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 6]>
+        <link href="/Administrator/css/ie.css" rel="stylesheet" type="text/css" />
+        <script type='text/javascript' src='/Administrator/js/plugins/other/lte-ie7.js'></script>
+    <![endif]-->
+    <script type='text/javascript' src='/Administrator/js/plugins/jquery/jquery-1.9.1.min.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/jquery/jquery-ui-1.10.1.custom.min.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/jquery/jquery-migrate-1.1.1.min.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/jquery/globalize.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/other/excanvas.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/other/jquery.mousewheel.min.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/bootstrap/bootstrap.min.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/cookies/jquery.cookies.2.2.0.min.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/jflot/jquery.flot.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/jflot/jquery.flot.stack.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/jflot/jquery.flot.pie.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/jflot/jquery.flot.resize.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/sparklines/jquery.sparkline.min.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js'></script>
+
+    <script type='text/javascript' src="/Administrator/js/plugins/uniform/jquery.uniform.min.js"></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins/shbrush/XRegExp.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/shbrush/shCore.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/shbrush/shBrushXml.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/shbrush/shBrushJScript.js'></script>
+    <script type='text/javascript' src='/Administrator/js/plugins/shbrush/shBrushCss.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/plugins.js'></script>
+    <script type='text/javascript' src='/Administrator/js/charts.js'></script>
+
+    <script type='text/javascript' src='/Administrator/js/actions.js'></script>
+    <!-- <script src="http://www.jq22.com/jquery/1.6.2/jquery.min.js"></script> -->
+
+		<script type="text/javascript" src="/Administrator/js/jQuery.rTabs.js"></script>
+
+</head>
+<body>    
+
+    <div id="loader"><img src="/Administrator/img/loader.gif"/></div>
+    <div class="wrapper">
+        
+        <div class="sidebar">
+            
+            <div class="top">
+               <img src="/Administrator/img/logo.png" alt="">
+             
+            </div>
+            <div class="nContainer">                
+                <ul class="navigation">         
+                    <!-- <li class="active"><a href="index-2.html" class="blblue"></a></li> -->
+                    <li>
+                        <a href="#" class="blyellow">活动管理</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="/administrator/open_admin_activity">待发布活动</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="blgreen">论坛管理</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="/administrator/open_admin_bbs">被举报的帖子</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="blgreen">义卖管理</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="/administrator/open_admin_shop">商品清理</a></li>
+                            
+                        </ul>
+                    </li>
+                                  
+                    <li>
+                        <a href="#" class="bldblue">用户管理</a>
+                        <div class="open"></div>
+                        <ul>
+                                 <li><a href="/administrator/admin/success/user">身份认证</a></li>
+                             <li><a href="/administrator/admin/success/org">组织认证</a></li>
+                             <li><a href="/administrator/admin/success/child">患儿认证</a></li>
+                           
+                                  <!--用户按身份展示   ，搜索   -->
+                        </ul>
+                    </li>
+                  
+                </ul>
+                <a class="close">
+                    <span class="ico-remove"></span>
+                </a>
+            </div>
+            <div class="widget">
+                <div class="datepicker"></div>
+            </div>
+            
+        </div>
+        
+        <div class="body">
+
+            <ul class="navigation">
+                <li>
+                     <div class="user"><!--管理员信息 -->
+                        <img src="/Administrator/img/examples/users/dmitry_m.jpg" align="left"/>
+                        <a href="#" class="name">
+                            <span>Dmitry Ivaniuk</span>
+                            <span class="sm">Administrator</span>
+                        </a>
+                    </div>
+                    <div class="buttons"><!--换格式按钮 -->
+                        <div class="sbutton green navButton">
+                            <a href="#"><span class="ico-align-justify"></span></a>
+                        </div>
+                        <div class="sbutton blue">
+                            <a href="#"><span class="ico-cogs"></span></a>
+                            <div class="popup">
+                                <div class="arrow"></div>
+                                <div class="row-fluid">
+                                    <div class="row-form">
+                                        <div class="span12"><strong>SETTINGS</strong></div>
+                                    </div>                                    
+                                    <div class="row-form">
+                                        <div class="span6">Navigation:</div>
+                                        <div class="span8"><input type="radio" class="cNav" name="cNavButton" value="default"/> Default <input type="radio" class="cNav" name="cNavButton" value="bordered"/> Bordered</div>
+                                    </div>                                    
+                                    <div class="row-form">
+                                        <div class="span6">Content:</div>
+                                        <div class="span8"><input type="radio" class="cCont" name="cContent" value=""/> Responsive <input type="radio" class="cCont" name="cContent" value="fixed"/> Fixed</div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </li>                
+            </ul>
+            
+            
+            <div class="content">
+                
+                 <div class="page-header"><!--导航字 -->
+                    <div class="icon">
+                        <span class="ico-arrow-right"></span>
+                    </div>
+                    <h1> <small>待认证的用户</small></h1>
+                </div>
+                
+             <div class="row-fluid">
+
+                    <div class="span12">
+                        <div class="widgets">
+
+                           
+                            <div class="tree" id="fenye">
+                                <!--
+                                    div
+                                -->
+                            </div>
+                            <div class="fenye">
+                                <div class="fenye_list">
+                                    <ul id="fenye_list">
+                                        <li><a class="fensiprev">上一页</a></li>
+                                        <li><a class="fensinext">下一页</a></li>
+                                    </ul>
+                                    <a class="page">
+                                        总页数：
+                                        <span id="page"></span>
+                                        页
+                                    </a>
+                                    <a class="page" id="freshen">刷新</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+               
+               
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- <div class="dialog" id="source" style="display: none;" title="Source"></div> -->
+    
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script>  
+	  var fensi;
+	    $.ajax(
+			  {
+				  type:"get",
+				  data:JSON.stringify({}),
+				  url:"/administrator/admin/success/user/listVP",
+				  dataType:"json",
+				  async:false,
+				  success:function(data){
+				  fensi=data.身份认证
+
+				  }
+
+			  }
+	  );
+          // =[
+
+    // 	{用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"02.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"03.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"05.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"04.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //     {用户类型:"志愿者",用户种类:"6-13",用户id:"shanshan",认证信息:"这活动真不错不错不错不错不错不错不错不错",认证图片:"01.jpg"},
+    //
+    //
+    //
+    // ];
+    
+    var now_fensi=[];
+    
+    freshen();
+    
+    $("#freshen").click(function(){
+    	freshen();
+    });
+    	
+    
+    function freshen(){
+    	var card_num=fensi.length;//卡片的个数
+			var ye_num=Math.ceil(card_num/6);  // 总页数，向上取整，页数，每页6个  
+	    $("#page").html(ye_num);
+	    updata(ye_num,1);//初始化
+	    
+	    
+	    $("#ye1").addClass("index");
+	    console.log("111111");
+    }
+    
+    
+    function updata(ye_num,now_ye){
+    	now_fensi=[];//清空数组
+    	
+			$("#fenye_list").empty();//清空分页ul
+			$("#fenye").empty();//清空card
+			
+			var prev=now_ye-1;
+			var next=now_ye+1;
+			if(now_ye==1) prev=now_ye;
+			if(now_ye==ye_num) next=ye_num;
+			
+			var ht="<li><a onclick='javascript:updata("+ye_num+","+prev+");' class='fensiprev'>上一页</a></li><li><a onclick='javascript:updata("+ye_num+","+next+");' class='fensinext'>下一页</a></li>";
+			
+			$("#fenye_list").append(ht);//添加上下页按钮
+			
+			if(ye_num<5){
+				for(i=1;i<ye_num+1;i++){
+					var html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye'>"+i+"</a></li>";
+					if(now_ye==i){
+						html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+					}
+					
+					$(".fensinext").parents('li').before(html);
+				}
+			}else if(ye_num>=5){
+				for(i=1;i<ye_num+1;i++){
+					var html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye'>"+i+"</a></li>";
+					if(now_ye<6 && i<=5){
+						if(now_ye==i){
+							html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+						}
+						$(".fensinext").parents('li').before(html);
+					}
+					if(now_ye>3 && now_ye<=(ye_num-2)){
+						if(i<=(now_ye+2) && i>=(now_ye-2)){
+							if(now_ye==i){
+								html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+							}
+							$(".fensinext").parents('li').before(html);
+						}
+					}
+					
+					if(now_ye==(ye_num-1)){
+						if(i>(ye_num-5)){
+							if(now_ye==i){
+								html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+							}
+							$(".fensinext").parents('li').before(html);
+						}
+					}else if(now_ye==ye_num){
+						if(i>(ye_num-5)){
+							if(now_ye==i){
+								html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+							}
+							$(".fensinext").parents('li').before(html);
+						}
+					}
+					
+				}
+			}
+			
+			for(i=0;i<fensi.length;i++){//将此时的6个数据压到now_fensi里
+				var x=now_ye-1;
+				if(i==0){
+					i=i+x*6;
+				}
+				if(i<now_ye*6 && now_ye<2){
+					now_fensi.push(fensi[i]);
+					//console.log(i);
+				}else if(i>x*6 && i<=now_ye*6 && now_ye>1){
+					now_fensi.push(fensi[i]);
+					//console.log(i);
+				}
+					
+			}
+			
+			for(i=0;i<now_fensi.length;i++){//添加card到页面
+   
+	    	var html="<div id="+"card"+i+" class='small_card1'>"+
+                        "<div class='span66'>"+
+                        "<table cellpadding='0' cellspacing='0' width='100%'class='table images lcnp'><tbody> <tr>"+
+                        "<td class='imgq'><a class='fb ' rel='group' href="+now_fensi[i].认证图片+"><img src="+now_fensi[i].认证图片+" class='img-polaroid'/></a></td>"+
+                        "<td class='info'><a class='fb' rel='group' href="+now_fensi[i].认证图片+">查看图片</a></td>"+
+                        "<td  class='infom'><span>认证人类别：</span><p>"+now_fensi[i].用户类型+"</p>"+
+                          "  <span>认证人id：</span><p>"+now_fensi[i].用户ID+"</p>"+
+                        "<span>认证信息：</span><p>"+now_fensi[i].姓名_组织名+"<br>"+now_fensi[i].身份证号+"</p></td>"+
+                        "<td class='bu'><a href='#'' class='button darkgreen'><span onclick='pass("+'"'+now_fensi[i].用户ID+'"'+")'>通过认证</span> </a> <br>"+
+                        "<a href='#'' class='button purple'><span onclick='fail()'> 驳回认证</span></a></td>"+
+                        "</tr></tbody></table></div>"+
+           "</div>";
+	    	$("#fenye").append(html);
+	    	
+	    }
+					//console.log("-----------------");
+			//console.log(now_fensi);<table cellpadding='0' cellspacing='0' width='100%'class='table images lcnp'>
+			
+			
+    }
+
+
+   
+		        
+	</script>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+   <script type="text/javascript">
+    function pass(s){
+        var userID=s;
+        var send_data={
+			"userid":userID,
+			 "csrfmiddlewaretoken":"{{ csrf_token }}"
+		}
+                $.ajax({
+                url:"/administrator/admin/success/user/listVP/pass/",
+                type:"post",
+                dataType:"json",
+                data:send_data,
+                success:function (data) {
+                        alert(data.message);
+                }})
+
+    }
+
+    function fail()
+    {
+         alert("驳回认证！");
+    }
+
+</script>
+</body>
+</html>

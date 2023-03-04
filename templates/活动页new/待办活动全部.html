@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>    
+  <head>    
+        <meta charset="utf-8">    
+          
+		<link rel="stylesheet" href="/活动页new/css/kapian.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>星星点灯</title>
+		<meta name="description" content="星星点灯网，致力于关爱自闭症人群">
+		<meta name="keywords" content="自闭症，关爱，志愿者">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<!-- <link rel="stylesheet" href="/css/base.css">
+	  <link rel="stylesheet" href="/css/head.css"> -->
+		<link rel="stylesheet" href="/活动页new/css/base.css">
+		<link rel="stylesheet" href="/活动页new/css/head.css">
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- 官网提供的 axios 在线地址 -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="/活动页new/font/iconfont.css">
+		<script src="/活动页new/message.js"></script>
+		<link href="/活动页new/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="/活动页new/css/footer.css" rel="stylesheet" type="text/css" media="all" />
+	   
+	</head>   
+  
+<!-- <style>  
+ 	*{
+ 		padding: 0;
+ 		margin: 0;
+ 		font-size: 12px;
+ 	}
+	.tree{
+		width: 880px;
+		height: 1000px;
+		margin: 20px auto;
+		/* border: 1px solid black; */
+		overflow-y: auto;
+		margin-top: 20px;
+        border: 3px solid #999;
+        border-radius: 1%;
+	}
+	.small_card{
+		margin: 0.3%;
+		/* border: 1px solid gray; */
+		height: 300px;
+		width: 820%;
+		float: left;
+		-moz-transition: background 0.5s;
+		-webkit-transition: background 0.5s;
+		-o-transition: background 0.5s;
+		transition: background 0.5s;
+	}
+	.small_card:hover{
+		background:#999;
+	}
+	.small_card label{
+		display: inline-block;
+		width: 50%;
+		height: 80px;
+		line-height: 40px;
+		margin: 0;
+		text-align: center;
+	}
+	.yincang{
+		display: none;
+	}
+	.small_card .join_user{
+		display: inline-block;
+		width: 50%;
+		float: right;
+		background: #D19D59;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		position: relative;
+		top: 20px;
+		text-decoration: none;
+	}
+	.fenye{
+		width: 500px;
+		margin: 0 auto;
+		margin-top: 10px;
+	}
+	.fenye .fenye_list{
+		width: 100%;
+		float: left;
+		text-align: center;
+		
+	}
+	.fenye .fenye_list ul{
+		padding: 0;
+		margin: 0;
+		width: 360px;
+	}
+	.fenye .fenye_list ul li{
+		float: left;
+		margin-right: 10px;
+		list-style-type: none;
+	}
+	.fensiprev,.fensinext{
+		line-height: 40px;
+		display: block;
+		width: 40px;
+		height: 40px;
+		text-decoration: none;
+		cursor: pointer;
+		color: #19755e;
+	}
+	.fensiprev,.fensinext:hover{
+		text-decoration: underline;
+	}
+	.fenye .fenye_list ul li .ye{
+		display: block;
+		height: 40px;
+		width: 40px;
+		text-align: center;
+		line-height: 40px;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.fenye_list .page{
+		display: block;
+		height: 40px;
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		text-decoration: none;
+		margin-left: 8px;
+		margin-bottom: 20px;
+	}
+	.index{
+		background: #19755e;
+		color: white;
+	}
+	.fenye .fenye_list ul li .ye:hover{
+		background: #19755e;
+		color: white;
+	}
+	#feshen{
+		color: #19755e;
+		font:bold;
+	}
+    .head{
+        width: 850px;
+        margin:auto;
+        font-size: large;
+        color: #000000;
+        margin-top: 20px;
+        font: bold;
+        height: 20px;
+    }
+    .head span{
+        font-size:medium;
+        color: #999;
+    }
+  
+</style>   -->
+<body>  
+	 <!-- 头部 -->
+	 <header id="head">
+        <!-- 快捷菜单  -->
+        <div class="post-shortcut">
+            <nav class="container">
+                <div class="logo fl">
+                </div>
+                <ul class="left fl">
+                   <li><a href="/webxxdd/">主页</a></li>
+			<li><a href="/activity/">活动</a></li>
+			<li><a href="/BBS/show_post_html">论坛</a></li>
+			<li><a href="/Charity_sale/open_sale">义卖</a></li>
+                </ul>
+                <ul class="right fr">
+					<span style="display: none" id="islogin">{{request.session.is_login}}</span>
+                              {% if request.session.is_login %}
+                     <label><span><a href="#">
+                                    <div class="ava"><img id="touxiang" alt=""
+                                            class="small"></div>
+                                </a></span></label><span id="session">{{ request.session.userID }}</span></li>
+                    <label><span><a href="/user_data/logout/">退出登录</a></span></label></li>
+                    <label><span><a href="/user_apply_data/openmine">个人主页</a></span></label></li>
+                    {% else %}
+                   <li ><label><span><a href="/user_data/login/">未登录</a></span></label></li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        </div>
+<!--		   {% if request.session.is_login %}-->
+<!--        <div class="card" v-if="cardShow" @mouseleave="cardLoad">-->
+<!--            <ul>-->
+<!--                <li>监护人</li>-->
+<!--                <li><a href="#">收到的消息</a></li>-->
+<!--                <li><a href="#">收到的回复</a></li>-->
+<!--                <li><a href="#">待办的活动</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--		  {% endif %}-->
+    </header>
+    <script src="活动页new/js/head.js" type="text/javascript"></script>
+<div id="back">
+	<div class="head">
+       待办活动
+       <span>
+           点击报名参加加入活动 一起献出爱心
+       </span>
+    </div>
+	<div class="tree" id="fenye">
+		<!--
+        	div
+        -->
+	</div>
+	<div class="fenye">
+		<div class="fenye_list">
+			<ul id="fenye_list">
+				<li><a class="fensiprev">上一页</a></li>
+				<li><a class="fensinext">下一页</a></li>
+			</ul>
+			<a class="page">
+				总页数：
+				<span id="page"> </span>
+				页  
+			</a>
+			<a class="page" id="freshen">刷新</a>
+		</div>
+	</div>
+</div>
+
+
+
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript">
+	// 获取数据
+	  var fensi;
+	  $.ajax(
+			  {
+				  type:"get",
+				  data:JSON.stringify({}),
+				  url:"/activity/showall/success/",
+				  dataType:"json",
+				  async:false,
+				  success:function(data){
+				  fensi=data.待发布活动
+
+				  }
+
+			  }
+	  );
+    var now_fensi=[];
+
+    freshen();
+
+    $("#freshen").click(function(){
+    	freshen();
+    });
+
+
+    function freshen(){
+    	var card_num=fensi.length;//卡片的个数
+			var ye_num=Math.ceil(card_num/3);  // 总页数，向上取整，页数，每页3个
+	    $("#page").html(ye_num);
+	    updata(ye_num,1);//初始化
+
+
+	    $("#ye1").addClass("index");
+	    console.log("111111");
+    }
+
+
+    function updata(ye_num,now_ye){
+    	now_fensi=[];//清空数组
+
+			$("#fenye_list").empty();//清空分页ul
+			$("#fenye").empty();//清空card
+
+			var prev=now_ye-1;
+			var next=now_ye+1;
+			if(now_ye==1) prev=now_ye;
+			if(now_ye==ye_num) next=ye_num;
+
+			var ht="<li><a onclick='javascript:updata("+ye_num+","+prev+");' class='fensiprev'>上一页</a></li><li><a onclick='javascript:updata("+ye_num+","+next+");' class='fensinext'>下一页</a></li>";
+
+			$("#fenye_list").append(ht);//添加上下页按钮
+
+			if(ye_num<5){
+				for(i=1;i<ye_num+1;i++){
+					var html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye'>"+i+"</a></li>";
+					if(now_ye==i){
+						html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+					}
+
+					$(".fensinext").parents('li').before(html);
+				}
+			}else if(ye_num>=5){
+				for(i=1;i<ye_num+1;i++){
+					var html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye'>"+i+"</a></li>";
+					if(now_ye<4 && i<=5){
+						if(now_ye==i){
+							html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+						}
+						$(".fensinext").parents('li').before(html);
+					}
+					if(now_ye>3 && now_ye<=(ye_num-2)){
+						if(i<=(now_ye+2) && i>=(now_ye-2)){
+							if(now_ye==i){
+								html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+							}
+							$(".fensinext").parents('li').before(html);
+						}
+					}
+
+					if(now_ye==(ye_num-1)){
+						if(i>(ye_num-5)){
+							if(now_ye==i){
+								html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+							}
+							$(".fensinext").parents('li').before(html);
+						}
+					}else if(now_ye==ye_num){
+						if(i>(ye_num-5)){
+							if(now_ye==i){
+								html="<li><a onclick="+"javascript:updata("+ye_num+","+i+");"+" class='ye index'>"+i+"</a></li>";
+							}
+							$(".fensinext").parents('li').before(html);
+						}
+					}
+
+				}
+			}
+
+			for(i=0;i<fensi.length;i++){//将此时的3个数据压到now_fensi里
+				var x=now_ye-1;
+				if(i==0){
+					i=i+x*3;
+				}
+				if(i<now_ye*3 && now_ye<2){
+					now_fensi.push(fensi[i]);
+					//console.log(i);
+				}else if(i>x*3 && i<=now_ye*3 && now_ye>1){
+					now_fensi.push(fensi[i]);
+					//console.log(i);
+				}
+
+			}
+
+			for(i=0;i<now_fensi.length;i++){//添加card到页面
+
+			var html="<div id="+"card"+i+" class='small_card'>"+
+				"<div class='carda'>"+
+				" <input type='radio' name='select' id='slide_1' checked>"+
+				" <div class='inner_part'>"+
+				"<label for='slideImg' class='img'>"+
+				"<img class='img_1' src='"+ now_fensi[i].活动图片+"'> </label>"+
+				"<div class='content content_1'>"+
+				"<div class='title'>"+now_fensi[i].发起活动名称+"</div>"+
+				"<div class='sub-title'>活动举办日期："+now_fensi[i].发起活动日期+""+
+				"<div class='sub-title'>报名截止日期："+now_fensi[i].报名截止日期+"</div>"+
+				"<div class='sub-title'>"+now_fensi[i].发起活动地点+"</div>"+
+				"<div class='text'>"+
+				now_fensi[i].发起活动简介+
+				"</div>"+
+				"<button onclick='myFunction("+'"'+now_fensi[i].发起活动名称+'"'+")'>报名参加</button></div> </div></div>"+
+					"</div>";
+				$("#fenye").append(html);
+				console.log(now_fensi[i].发起活动日期);
+
+	    }
+					//console.log("-----------------");
+			//console.log(now_fensi);
+			
+			
+    }
+	
+		         
+	</script>  
+	</script>  
+	<script>
+	// 	function myFunction(){
+	
+	// var r=confirm("确定报名该活动？");
+	// if (r==true){
+	// 	alert("已成功报名！");
+	// }
+	function myFunction(s){
+		var islogin=$("#islogin").html();
+		var title=s;
+		console.log(title);
+		console.log(islogin);
+		if(islogin)
+		{
+			confirm('确认报名该活动？').then(() => {
+                console.log('已确认');
+                var userid=document.getElementById("session")
+				console.log(userid);
+				 var send_data={
+			"userid":userid.innerHTML,
+			"title":title,
+			 "csrfmiddlewaretoken":"{{ csrf_token }}"
+		}
+                $.ajax({
+                url:"/activity/showall/apply/",
+                type:"post",
+                dataType:"json",
+                data:send_data,
+                success:function (data) {
+                	if(data.code===0)
+                        alert(data.message);
+                	else
+                		alert(data.message);
+                }})
+
+            }).catch(() => {
+                console.log('已取消')
+            })
+		}
+		else
+		{
+			alert('请先登录!')
+			setTimeout(function () {
+                        //注册成功后1.5s重定向到登录页面
+                        window.location.href='/user_data/login/'
+                    }, 1500)
+
+		}
+
+		}
+	 var userID=document.getElementById("session").innerHTML;
+            var send_data={
+                "userID":userID,
+                  "csrfmiddlewaretoken":"{{ csrf_token }}"
+            }
+            $.ajax(
+                {
+                    type:"post",
+                    url:"/gettouxiang/",
+                    datatype:"json",
+                    data:send_data,
+                    success:function(data){
+                     document.getElementById("touxiang").src=data
+                    }
+                }
+            )
+
+		
+		</script>
+          
+    </body>    
+</html>  

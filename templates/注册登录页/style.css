@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+}
+
+
+
+
+/* .right{
+    width: 20%;
+    height: 600px;
+    float: right;
+} */
+#主体::before, #主体::after{
+content: "";
+display:table;
+}
+#主体::after
+{
+    clear: both;
+}
+
+#content {
+    width: auto;
+    height: 600px;
+    /* padding-left: 260;
+    padding-right: 260; */
+    left: 20%;
+    float:left;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 100px;
+}
+
+#tab_bar {
+    width: 900px;
+    height:50px;
+    float: left;
+}
+#tab_bar ul {
+    padding: 0px;
+    margin: 0px;
+    height: 50px;
+    width: 900px;
+    text-align: center;
+}
+
+#tab_bar li {
+    list-style-type: none;
+    float: left;
+    width: 300px;
+    height: 50px;
+    background-color: gray;
+    text-align: center;
+    color: ivory;
+  
+}
+.in{
+    padding-left: 100px;
+    padding-top: 30px; 
+}
+
+.tab_css {
+    width:900px;
+    height:500px;
+    background: rgba(119, 165, 142, 0.603);
+    display: none;
+    float: left;
+    /* padding-left:100px ;  */
+}
+.container{
+    width: 1240px;
+    margin: 0 auto;
+}
+/* post-header */
+.post-shortcut{
+    height: 52px;
+    background-color: #197551;
+
+
+}
+.post-shortcut .container{
+    height: 52px;
+}
+.post-shortcut ul li{
+    float: left;
+    line-height: 52px;
+    color: #fed03c;
+}
+.post-shortcut ul li a{
+    margin: 0 16px;
+    color: #fed03c;
+    font-size: 14px;
+}
+.post-shortcut li:last-child a{
+    margin-right: 0;
+  /* background-color: darkslategray; */
+}
+.button{
+    font: size 100px,50px;
+    background-color: #197551;
+    color:ivory;
+}

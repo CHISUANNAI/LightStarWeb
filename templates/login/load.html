@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>星星点灯-登录</title>
+    <link rel="stylesheet" href="/login/CSS/style.css">
+   <link rel="stylesheet" href="/login/CSS/base.css">
+    <link rel="shortcut icon" href="小星.ico" type="image/x-icon" >
+    <script src="vue.js">   </script>
+    <link rel="stylesheet" href="/login/CSS/base.css">
+
+   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+   <meta name="description" content="星星点灯网，致力于关爱自闭症人群">
+   <meta name="keywords" content="自闭症，关爱，志愿者">
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   <!-- <link rel="stylesheet" href="/css/base.css">
+ <link rel="stylesheet" href="/css/head.css"> -->
+   <link rel="stylesheet" href="/login/CSS/base.css">
+   <link rel="stylesheet" href="/login/CSS/head.css">
+   <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <!-- 官网提供的 axios 在线地址 -->
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+
+<body> 
+    <!-- 头部 -->
+    <header id="head">
+        <!-- 快捷菜单  -->
+        <div class="post-shortcut">
+            <nav class="container"> 
+                <div class="logo fl">
+                </div>
+                <ul class="left fl">
+                   <li><a href="/webxxdd/">主页</a></li>
+                    <li><label><span><a href="/activity/">活动</a></span></label></li>
+                    <li><label><span><a href="./post.html">论坛</a></span></label></li>
+                    <li><label><span><a href="#">义卖</a></span></label></li>
+                </ul>
+                <ul class="right fr">
+                     {% if request.session.is_login %}
+                     <label><span><a href="#">
+                                    <div class="ava"><img id="touxiang" alt=""
+                                            class="small"></div>
+                                </a></span></label><span id="session">{{ request.session.userID }}</span></li>
+                    <label><span><a href="/user_data/logout/">退出登录</a></span></label></li>
+                    <label><span><a href="/user_apply_data/openmine">个人主页</a></span></label></li>
+                    {% else %}
+                   <li ><label><span><a href="/user_data/login/">未登录</a></span></label></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+<!--        {% if request.session.is_login %}-->
+<!--        <div class="card" v-if="cardShow" @mouseleave="cardLoad">-->
+<!--            <ul>-->
+
+<!--                <li>监护人</li>-->
+<!--                <li><a href="#">收到的消息</a></li>-->
+<!--                <li><a href="#">收到的回复</a></li>-->
+<!--                <li><a href="#">待办的活动</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        {% endif %}-->
+    </header>
+    <div id="主体" class="container2" >
+        
+        <!-- <div id='pic'>
+        <img src="img/自闭海报43.png" alt="" width="450" height="600"> -->！！
+
+
+
+    <div id="content" ><!-- 中间部分 -->
+        <!-- 初始登陆页面 -->
+        <div class="tab_css 0">
+        <div class="login_titles">用户登录</div>
+
+        <div class="login_message">
+            <div id="login_message">提示信息</div>
+        </div>
+        <div class="login_user">
+            <img src="/login/img/user.png">
+            <input id="user" type="text" placeholder="请输入用户名">
+        </div>
+        <div class="login_pwd login_user">
+            <img src="/login/img/pwd.png">
+            <input id="pwd" type="password" placeholder="请输入密码">
+        </div>
+        <div class="login_remenber">
+          <a id="remenber_pwd"ahref="javascript:void(0);"   onclick="wuzhanghao()" >没有账号？立即注册</a>
+        </div>
+        <div class="login_submit" onclick="login()">
+            <div>登录</div>
+        </div>
+        <style>
+            #choose{display:none;}
+        </style>
+         <div id="choose"  >
+             请选择注册身份：<br>
+             <a href="/user_data/registerV/">志愿者</a><br>
+             <a href="/user_data/registerP/">自闭症患者家属</a><br>
+             <a href="/user_data/registerO/">社会组织</a><br>
+         </div>
+
+        </div>
+            </div>
+
+        </div>
+            <script src="/login/js/head.js" type="text/javascript"></script>
+
+
+
+    <!-- 登录 -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript">
+        function wuzhanghao()
+        {
+ document.getElementById("choose").style.display="block";
+
+        }
+
+       function login(){
+            var username = $("#user").val();
+            var password =$("#pwd").val();
+            var send_data={
+                "userID":username,
+              "password":password,
+                 "csrfmiddlewaretoken":"{{ csrf_token }}"
+            };
+            $.ajax({
+                url:"success/",
+                type:"post",
+                data:send_data,
+                dataType:"json",
+                success:function(data){
+                    if (data.code=== 0) {
+                     alert(data.message);
+                     setTimeout(function () {
+                     //登录成功后1.5s回到页面首页
+                     window.location.href ='/webxxdd/'
+                 }, 1000)
+                     }
+                 else
+                     alert(data.message);}
+                })
+                         }
+    //     function jump(){
+    //        window.location.href='register/'
+    //    }
+
+            var userID=document.getElementById("session").innerHTML;
+            var send_data={
+                "userID":userID,
+                  "csrfmiddlewaretoken":"{{ csrf_token }}"
+            }
+            $.ajax(
+                {
+                    type:"post",
+                    url:"/gettouxiang/",
+                    datatype:"json",
+                    data:send_data,
+                    success:function(data){
+                     document.getElementById("touxiang").src=data
+                    }
+                }
+            )
+
+   </script>
+    
+</body>
+            
+</html>

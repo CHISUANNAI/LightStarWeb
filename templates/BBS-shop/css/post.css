@@ -1,0 +1,204 @@
+.container{
+    width: 1240px;
+    margin: 0px auto;
+}
+.container-list{
+    width: 1240px;
+    margin: 0 auto  50px ;
+    background-color: rgba(255, 255, 255, 0.767);
+  
+}
+.container-list:hover{
+ 
+    background-color: rgba(255, 255, 255, 0.932);
+    transition:0.2s
+}
+hr{
+    background-color: #01a2a6;
+    color: #01a2a6;
+
+}
+.back{
+   
+    background-size: cover;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+.back1{
+ background-image: url(../images/1.jpg);
+}
+
+
+.back3{
+background-image: url(../images/3.jpg);}
+
+.content-hd h2{
+    color: #f36371;
+}
+.content-hd .fl span{
+   color:  #01a2a6;
+}
+
+/* post-nav */
+.post-nav{
+    height: 90px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+    width: 1000px;
+}
+/* logo部分 */
+.post-nav .p-logo{
+    width: 70px;
+    height: 70px;
+    margin-left: 25px;
+}
+.post-nav .p-logo a{
+    display: block;
+    height: 70px;
+    background: url('../images/post-logo.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    font-size: 0;
+}
+/* 导航模块 */
+.post-nav nav li{
+    float: left;
+    height: 70px;
+    line-height: 70px;
+    margin: 0px 69px 0px;
+}
+.post-nav nav{
+    font-size: 20px;
+    margin-left: 40px;
+    color: black;
+}
+.post-nav nav a:hover{
+color: #f36371;
+border-bottom: 1px solid #f36371;
+padding-bottom: 7px;
+}
+/* 搜索 */
+.post-nav .search{
+    position: relative;
+    width: 172px;
+    height: 30px;
+    margin-top: 17px;
+}
+.post-nav .search input{
+    font-size: 18px;
+    box-sizing: border-box;
+    width: 264px;
+    height: 31px;
+    border: 1px solid black;
+    padding-left: 31px;
+}
+.post-nav .search::before{
+    content: '';
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    background: url('../images/sprites.png') -80px -70px;
+}
+/* 帖子内容模块 */
+.post-content {
+    /* margin-top: 50px; */
+
+    border:1px solid black;
+   
+}
+/* 帖子内容模块 头部*/
+.post-content .content-hd{
+    height: 115px;
+    line-height: 115px;
+    margin: 0px 50px 0px
+}
+
+.post-content .content-hd h2{
+    /* 这里设置height是防止卡列表 */
+    height: 115px;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 115px;
+}
+.post-content .content-hd span{
+    font-size: 16px;
+    color: #999;
+}
+.post-content .goods-hd a{
+    color: #666;
+}
+.post-content .content-hd a::after{
+    content: '';
+    width: 7px;
+    height: 13px;
+    display: inline-block;
+    margin-left: 13px;
+    background: url('../images/sprites.png') 0px -110px;
+    vertical-align: middle;
+}
+.post-content .content-list{
+    padding-bottom: 75px;
+}
+/* 列表*/
+.post-content{
+    margin-bottom: 100px;
+}
+.post-content .content-list li{
+    height: 30px;
+    margin: 0px 50px 0px;
+    line-height: 1;
+    border-bottom: 1px solid black;
+    display: block;
+}
+.post-content .content-list li h3{
+    height: 40px;
+    margin-top: 22px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.post-content a:hover{
+   color: #999;
+}
+.post-content h2 span {
+    font-size: 17px;
+    color: gray;
+  }
+  .post-page{
+    margin-top: 20px;
+  }
+  .post-page ul{
+    height: 25px;
+    width: 200px;
+    margin: 0 auto;    
+    vertical-align: middle;
+  }
+  .post-page li{
+      font-size: 25px;
+      float: left;
+      margin: 0px 3px 0px;
+  }
+  .post-page li:first-child a{
+    width: 39px;
+    height: 34px;
+  }
+  .post-page li:last-child a::after{
+    content: '';
+    display: inline-block;
+    width: 369px;
+    height: 324px;
+    background:url('../images/jiantou.png') -493px -880px;
+    vertical-align: middle;
+    zoom: 0.1; 
+    }
+    .post-page li:first-child a:before{
+    content: '';
+    display: inline-block;
+    width: 369px;
+    height: 324px;
+    background:url('../images/arrow-left.png') -910px -893px;
+    vertical-align: middle;
+    zoom: 0.1;
+    }

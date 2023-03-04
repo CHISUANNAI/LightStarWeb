@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星星点灯</title>
+    <meta name="description" content="星星点灯网，致力于关爱自闭症人群">
+    <meta name="keywords" content="自闭症，关爱，志愿者">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/活动页new/css/base.css">
+  <link rel="stylesheet" href="/活动页new/css/common.css">
+  <link rel="stylesheet" href="/活动页new/css/index.css">
+  <link rel="stylesheet" href="/活动页new/css/head.css">
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script src="/活动页new/unslider.min.js"></script>
+    <link href="/活动页new/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/活动页new/css/footer.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="/活动页new/css/index.css">
+</head>
+<body>
+  <!-- 头部 -->
+  <header id="head">
+    <!-- 快捷菜单  -->
+    <div class="post-shortcut">
+        <nav class="container1">
+            <div class="logo fl">
+            </div>
+            <ul class="left fl">
+             <li><a href="/webxxdd/">主页</a></li>
+			<li><a href="/activity/">活动</a></li>
+			<li><a href="/BBS/show_post_html">论坛</a></li>
+			<li><a href="/Charity_sale/open_sale">义卖</a></li>
+            </ul>
+            <ul class="right fr">
+                            {% if request.session.is_login %}
+                     <label><span><a href="#">
+                                    <div class="ava"><img id="touxiang" alt=""
+                                            class="small"></div>
+                                </a></span></label><span id="session">{{ request.session.userID }}</span></li>
+                    <label><span><a href="/user_data/logout/">退出登录</a></span></label></li>
+                    <label><span><a href="/user_apply_data/openmine">个人主页</a></span></label></li>
+                    {% else %}
+                   <li ><label><span><a href="/user_data/login/">未登录</a></span></label></li>
+                    {% endif %}
+
+
+
+            </ul>
+        </nav>
+    </div>
+<!--      {% if request.session.is_login %}-->
+<!--    <div class="card" v-if="cardShow" @mouseleave="cardLoad">-->
+<!--        <ul>-->
+<!--            <li>监护人</li>-->
+<!--            <li><a href="#">收到的消息</a></li>-->
+<!--            <li><a href="#">收到的回复</a></li>-->
+<!--            <li><a href="#">待办的活动</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--       {% endif %}-->
+</header>
+   <script src="/活动页new/js/head.js" type="text/javascript"></script>
+<!-- 加个头头 -->
+
+<div class="goods-hd solo-container ">
+
+  <h2 class="fl f2">
+    往期活动 <span>往期精彩活动一览</span>
+  </h2>
+</div>
+
+  <!-- 往期活动 -->
+<div class="xtx-entry">
+<div class="containerm">
+ 
+<!-- 图片设置成长宽比2：1 -->
+  <!-- <ul class="banner">
+    <li><a href="#">
+      <img src="./uploads/banner_1.png" alt="">
+    </a></li>
+     -->
+ <!-- 轮播图 -->
+     <div class="banner" id="b04">
+      <ul>
+          <li><img src="/活动页new/3.jpg" alt="" width="750" height="375" ></li>
+          <li><img src="/login/uploads/孤独症主题讲座.jpg" alt="" width="1000" height="500" ></li>
+          <li><img src="/login/uploads/show.jpg"  alt="" width="1000" height="500" ></li>
+          <li><img src="/login/uploads/show2.jpg" alt="" width="1000" height="500" ></li>
+          <li><img src="/login/uploads/show4.jpg" alt="" width="1000" height="500" ></li>
+      </ul>
+      <!-- <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al" src="images/arrowl.png" alt="prev" width="20" height="35"></a> -->
+      <a href="javascript:void(0);" class="unslider-arrow04 next"></a>
+  </div>
+
+  <!-- </ul> -->
+  <!-- 商品侧边栏 -->
+  <aside class="category">
+    <ul>
+      <li><a  id="001" href="#" onclick="getid(this.id)">上海 <span>用艺术点亮生命</span></a></li>
+      <li><a  id="002" href="#" onclick="getid(this.id)">浙江 <span>首部自闭症微电影</span> </a></li>
+      <li><a  id="003" href="#" onclick="getid(this.id)">四川 <span>放飞希望·用爱护航</span></a></li>
+      <li><a  id="004" href="#" onclick="getid(this.id)">上海 <span>用爱点亮星星的世界</span> </a></li>
+      <li><a  id="005" href="#" onclick="getid(this.id)">大连 <span>自闭症少年书画公益课</span></a></li>
+      <li><a  id="006" href="#" onclick="getid(this.id)">上海 <span>星星123专项基金</span> </a></li>
+      <li><a  id="007" href="#" onclick="getid(this.id)">赤峰 <span>爱心续航资助活动</span> </a></li>
+      <li><a  id="008" href="#" onclick="getid(this.id)">江苏 <span>自闭症科普活动</span> </a></li>
+      <li><a  id="009" href="#" onclick="getid(this.id)">济南 <span>走进“星星的孩子”</span></a></li>
+      <li><a  id="010" href="#" onclick="getid(this.id)">广州<span>星梦启航，让蓝莲花开</span></a></li>
+    </ul>
+  </aside>
+  <!-- 左右按钮 -->
+  <!-- <a href="#" class="pre"></a>
+  <a href="#" class="next"></a> -->
+  <!-- 轮播图按钮 -->
+  <!-- <ol class="indicator">
+    <li></li>
+    <li></li>
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+  </ol>-->
+
+</div>
+</div> 
+<!-- 待办活动模块 -->
+<div class="xtx-new-goods containerm">
+  <!-- 头部 -->
+  <div class="goods-hd">
+    <!-- 左边 -->
+    <h2 class="fl">
+      待办活动 <span>加入活动 一起献爱心吧</span>
+    </h2>
+    <!-- 右侧a -->
+    <a class="fr" onclick="getact()">查看全部</a>
+      {% if request.session.is_login %}
+      {% if request.session.type == 'Org'%}
+    <a href="/activity/showsetact" class="fr">发起活动</a>
+      {% else %}
+      <a style="display: none"  class="fr">发起活动</a>
+      {% endif %}
+      {% endif %}
+
+  </div>
+  <!-- 列表 -->
+   <ul class="goods-list"><!--图片设置成正方形 -->
+    <li>
+      <a href="#">
+        <img src="/login/uploads/外滩之夜.jpg" alt="">
+        <h3>自闭症募捐徒步活动</h3>
+        <p> 8月13日——天津保利广场</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="/login/uploads/星星的孩子.jpg" alt="">
+        <h3>自闭症家属座谈会</h3>
+        <p>8月28日——青岛瑞诗酒店</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="/login/uploads/OIP-C.jpg" alt="">
+        <h3>自闭症儿童作品义卖活动</h3>
+        <p>9月1日——苏州美术馆</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="/login/uploads/孤独症主题讲座.jpg" alt="">
+        <h3>自闭症诊断与干预讲座</h3>
+        <p>9月10日——成都星愿自闭儿童治疗中心</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <!-- Footer -->
+  <div class="w3l-footer">
+    <div class="container">
+        <div class="footer-info-agile">
+            <ul>
+                <li class="lb">
+                    <div class=" links">
+                        <h4>快速导航</h4>
+                        <ul>
+                            <li><a href="/webxxdd/">主页</a></li>
+                            <li><a href="/activity/">活动页</a></li>
+                            <li><a href="/BBS/show_post_html">论坛页</a></li>
+                            <li></li><a href="/Charity_sale/open_sale">义卖页</a>
+                </li>
+                <li><a href="/user_apply_data/openmine">个人主页</a></li>
+            </ul>
+        </div>
+        </li>
+        <li class="lb">
+            <div class=" address">
+                <h4>地址</h4>
+                <ul>
+                    <li>上海市</li>
+                    <li>同济大学</li>
+                    <li>嘉定校区</li>
+                </ul>
+        </li>
+        <li class="lb">
+            <div class="connect-social">
+                <h4>合作伙伴</h4>
+                <section class="social">
+                    <ul>
+                        <li><a class="icon fb" href="https://www.asd-home.cn/Home/Zbindex/about.html"></a><span>自闭症家园网</span>
+                        </li>
+                        <li><a class="icon tw" href="https://www.cswef.org/cswef/welfarepro/detail/id/99.html"></a><span>中国社会福利基金会</span></li>
+                      		<li><a class="icon pin" href="http://www.autism.com.cn/"></a><span>北京孤独症儿童康复协会</span></li>
+							
+                    </ul>
+                </section>
+        </li>
+        </ul>
+    </div>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+</div>
+</div>
+<div class="copy">
+    <p>Copyright &copy; 2021.Light Stars All rights reserved</p>
+</div>
+  <script src="/活动页new/js/head.js" type="text/javascript"></script>
+  <script>
+    //最后用js控制
+$(document).ready(function(e) {
+    var unslider04 = $('#b04').unslider({
+        dots: true
+    }),
+    data04 = unslider04.data('unslider');
+     
+    $('.unslider-arrow04').click(function() {
+        var fn = this.className.split(' ')[1];
+        data04[fn]();
+    });
+});
+function getid(id)
+     {
+      var actid=id;
+      //url:" /activity/showarticle?id="+actid
+      window.location.href=encodeURI("/activity/showarticle/?actid="+(actid));
+     };
+
+function getact()
+{
+    window.location.href=encodeURI("/activity/showall/");
+};
+
+ var userID=document.getElementById("session").innerHTML;
+            var send_data={
+                "userID":userID,
+                  "csrfmiddlewaretoken":"{{ csrf_token }}"
+            }
+            $.ajax(
+                {
+                    type:"post",
+                    url:"/gettouxiang/",
+                    datatype:"json",
+                    data:send_data,
+                    success:function(data){
+                     document.getElementById("touxiang").src=data
+                    }
+                }
+            )
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+.container{
+    width: 1240px;
+    margin: 0 auto;
+}
+/* content-nav */
+.content-nav{
+    border-top: 1px solid white;
+    height: 52px;
+    text-align: center;
+  
+}
+
+.content-nav .content-class{
+    display: inline-block;
+    height: 52px;
+    width: 200px;
+    line-height: 60px;
+    font-size: 28px;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    color: #f36371;
+}
+.content-nav .theme{
+    line-height: 52px;
+    display: inline-block;
+    height: 52px;
+    margin-left: 20px;
+}
+/* 楼主栏 */
+.content-onwer{
+    position: relative;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.content-onwer .owner-info{
+    width: 300px;
+    box-sizing: border-box;
+}
+.content-onwer .owner-info .ava{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    margin-top :30px auto;
+    margin-bottom:30px auto;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: url(../uploads/ava.jpg);
+    background-size: 100% 100%;
+}
+.content-onwer .owner-info .nic{
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: 175px;
+    font-size: 20px;
+}
+.content-onwer .owner-info .floor{
+    display: inline-block;
+    position: absolute;
+    top: 130px;
+    left: 175px;
+    font-size: 16px;
+    color: grey;
+}
+.content-onwer .owner-info .time{
+    display: inline-block;
+    position: absolute;
+    top: 155px;
+    left: 175px;
+    font-size: 16px;
+    color: grey;
+}
+.content-onwer .owner-info .time2{
+    display: inline-block;
+    position: absolute;
+    top: 175px;
+    left: 175px;
+    font-size: 16px;
+    color: grey;
+}
+.content-onwer .content-detail{
+    width: 835px;
+    padding: 50px;
+    box-sizing: border-box;
+    border-left: 1px solid black;
+}
+.content-onwer .content-detail p{
+    word-wrap:break-word;
+}
+/* 其他楼栏 */
+.content-other{
+    position: relative;
+    border: 1px solid black;
+    border-top: 0px;
+}
+.content-other .other-info{
+    width: 300px;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+}
+.content-other .other-info .ava{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: url(../uploads/lyf.jpg);
+    background-size: 100% 100%;
+}
+.content-other .other-info .nic{
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+left: 20px;
+    font-size: 20px;
+}
+.content-other .other-info .floor{
+    width: 100px;
+    display: inline-block;
+    position: absolute;
+    top: 130px;
+left: 20px;
+    font-size: 16px;
+    color: grey;
+}
+.content-other .other-info .time{
+    display: inline-block;
+    position: absolute;
+    top: 155px;
+left: 20px;
+    font-size: 16px;
+    color: grey;
+    width: 200px;
+}
+.content-other .content-detail{
+    min-height: 110px;
+    width: 837px;
+    padding: 25px;
+    box-sizing: border-box;
+    margin-left: 300px;
+}
+.content-other .action{
+    width: 940px;
+    height: 50px;
+    box-sizing: border-box;
+}
+.content-other .action .like,.ref-bot{
+    display: inline-block;
+    box-sizing: border-box;
+    height: 50px;
+    width: 150px;
+}
+.content-other .action .like span{
+    display: inline-block;
+    line-height: 50px;
+    margin-left: 1em;
+    box-sizing: border-box;
+}
+.content-other .action .ref-bot span{
+    display: inline-block;
+    line-height: 50px;
+    margin-left: 1em;
+    box-sizing: border-box;
+}
+.content-other .ref{
+    margin-left: 300px;
+    position: relative;
+    width: 868px;
+    padding: 25px 50px 25px;
+    box-sizing: border-box;
+    border-top: 1px solid black;
+    min-height: 127px;
+}
+.content-other .ref-bot{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') -0px -734px;
+    zoom: 0.068;
+    border:white;
+}
+.content-other .ref-bot:hover{
+    cursor: pointer;
+}
+.content-other .ref-box{
+    font-size: 16px;
+    border:1px solid black;
+    width: 705px;
+    resize:none;
+}
+.content-other .sub{
+    display: block;
+    position: absolute;
+    top: 26px;
+    right: 48px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+.content-other .con{
+    display: block;
+    position: absolute;
+    top: 75px;
+    right: 48px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+.content-other .con-af{
+    display: block;
+    position: absolute;
+    top: 75px;
+    right: 48px;
+    font-size: 20px;
+    color: #999;
+    border: 1px solid #999;
+    }
+.content-other .sub-af{
+    display: block;
+    position: absolute;
+    top: 26px;
+    right: 48px;
+    font-size: 20px;
+    color: #999;
+    border: 1px solid #999;
+}
+
+/* 侧边栏 */
+.button{
+    position: fixed;
+    width: 50px;
+    height: 200px;
+    right: 67px;
+    bottom: 200px;
+}
+.button .aside-ref,.aside-like,.aside-collect,.report{
+    width: 50px;
+    height: 50px;
+}
+.button .aside-ref{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') -0px -734px;
+    zoom: 0.068;
+}
+.button .aside-like{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') -2208px -734px;
+    zoom: 0.068;
+}
+.button .aside-like,.aside-like-af:hover{
+    cursor: pointer;
+}
+.button .aside-like-af{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like-after.png') -2208px -740px;
+    zoom: 0.068;
+}
+.button .aside-collect{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') -1472px -2945px;
+    zoom: 0.068;
+}
+.button .aside-collect-af{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like-after.png') -1472px -2945px;
+    zoom: 0.068;
+}
+.button .aside-collect,.aside-collect-af:hover{
+    cursor: pointer;
+}
+.button .report{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') 0px -4418px;
+    zoom: 0.068;
+}
+.button .report:hover{
+    cursor: pointer;
+}
+/* 帖子发布 */
+.post-release
+{
+    height: 600px;
+    text-align: center;
+    position: relative;
+}
+/* .post-release .headline{
+    width: 1166px;
+    height: 50px;
+    border:1px solid black;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 25px;
+} */
+.post-release .content{
+    width: 1173px;
+    border: 1px solid black;
+    margin-top: 20px;
+    font-size: 18px;
+    resize:none;
+}
+.post-release .ref-posttype{
+    margin-left: 50px;
+}
+.post-release span{
+    font-size: 20px;
+    margin-left: 1em;
+}
+.post-release .ref-submit{
+    display: block;
+    position: absolute;
+    bottom: 203px;
+    right: 24px;;
+    font-size: 25px;
+    border: 1px solid black;
+    padding:5px 10px 5px;
+}
+.post-release .submit ,.post-release .submit-af{
+    display: block;
+    position: absolute;
+    bottom: 160px;
+    right: 258px;
+    font-size: 20px;
+    background-color:#01a2a6 ;
+    padding:5px 15px 5px 15px;
+    color: white;
+    border: white;
+    }
+    
+    .post-release .submit:hover{
+        background-color: #f36371;
+    }
+    /* 举报弹窗 */
+.modal-dialog .modal-content{
+    width: 575px;
+    height: 490px;
+    position: fixed;
+    top: 64px;
+    left: 43px;
+}
+.mybtn{
+    margin-left: 411px;
+    width:100px;
+    height:30px;
+    display:inline-block;
+    background-color:#ca3334;
+    border:1px solid #ca3334;
+    border-radius:3px;
+    color:white;
+    font-size:14px;
+    font-family:微软雅黑;
+    cursor:pointer;
+    text-align:center;
+    vertical-align: center;
+    box-shadow:0px 0px 1px 1px #912828;
+    transition: all 1s;
+  }
+  .mybtn:hover{
+    background-color:#912828;
+    border-color:#912828;
+    color:white;
+    text-decoration:none;
+  }
+  .modal-dialog .modal-content textarea{
+    width: 512px;
+    resize: none;
+  }

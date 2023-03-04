@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <form>
+     <input id="username" type="text" name="username" placeholder="用户名" ><br>
+      <input id="password" type="password" name="password" placeholder="密码" ><br>
+      <button id="id" type="button" onclick="login()">登录</button> <button id="id2" type="button" onclick="jump()">没有账号？立即注册</button>
+          <span id="hint3" style="color: red"></span>
+  </form>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+      <script type="text/javascript">
+          function login(){
+               var username = $("#username").val();
+               var password =$("#password").val();
+               var send_data={
+                   "userID":username,
+                 "password":password,
+                    "csrfmiddlewaretoken":"{{ csrf_token }}"
+               };
+               $.ajax({
+                   url:"success/",
+                   type:"post",
+                   data:send_data,
+                   dataType:"json",
+                   success:function(data){
+                       if (data.code=== 0) {
+                        $("#hint3").text(data.message);
+                        setTimeout(function () {
+                        //登录成功后1.5s回到页面首页
+                        window.location.href ='/user_data/'
+                    }, 1000)
+                        }
+                    else
+                        $("#hint3").text(data.message);}
+                   })
+                            }
+           function jump(){
+              window.location.href='register/'
+          }
+      </script>
+
+</body>
+</html>

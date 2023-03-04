@@ -1,0 +1,230 @@
+*{
+    margin: 0px;
+}
+
+/* 消除浮动 */
+#主体::before, #主体::after{
+content: "";
+display:table;
+}
+#主体::after
+{
+    clear: both;
+}
+/* !!! */
+#content {
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/* login_container */
+.tab_css {
+    padding: 20px 30px;
+    background: rgba(0,0,0,0.3);
+
+}
+
+#choose{
+    display: none;
+    font-size: 14px;
+    color: white;
+    margin: 0;
+}
+#choose a{
+font-size: 12px;
+color:#888;
+}
+#choose a:hover
+{
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+#pic{
+    width: 450px;
+    height: 600px;
+    float: left;
+    
+}
+/* #tab_bar {
+    width: 450px;
+    height:50px;
+    float: left;
+}
+#tab_bar ul {
+    padding: 0px;
+    margin: 0px;
+    height: 50px;
+    width: 450px;
+    text-align: center;
+}
+
+#tab_bar li {
+    list-style-type: none;
+    float: left;
+    width: 150px;
+    height: 50px;
+    background-color: gray;
+    text-align: center;
+    color: ivory;
+  
+} */
+
+/* 后几页表单格式 */
+.forma{
+        position:relative;
+        top:50px;
+        left: 30px;
+}
+/* 首页表单格式 */
+.form{
+    position:relative;
+    top:100px;
+    left: 100px;
+}
+.in{
+    padding-left: 50px;
+    padding-top: 30px; 
+}
+/* !!! */
+.container2{
+    background: url("../img/3.jpg");
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    min-width: 1000px;
+    z-index:-10;
+    zoom: 1;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+
+    
+}
+#head{
+    margin-bottom: 100px;
+}
+
+.login_title{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 30px;
+    color: white;
+    font-family: "华文行楷";
+}
+.login_titles{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #eee;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.login{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.login_title{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 30px;
+    color: white;
+    font-family: "华文行楷";
+}
+.login_container{
+    padding: 20px 30px;
+    background: rgba(0,0,0,0.3);
+}
+.login_titles{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #eee;
+}
+.login_user{
+    position: relative;
+    margin: 15px 0;
+}
+.login_user img{
+    position: absolute;
+    height: 20px;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+}
+.login_user input{
+    outline: none;
+    border: none;
+    padding: 7px 0px 7px 35px;
+    width: 250px;
+    font-family: "Microsoft soft";
+    font-size: 14px;
+    opacity: 0.4;
+}
+.login_remenber{
+    font-family: "Microsoft soft";
+    font-size: 14px;
+    color: #eee;
+}
+.login_remenber a:hover {
+   color: dodgerblue;
+   text-decoration: underline;
+    cursor: pointer;
+}
+.login_submit div{
+    cursor: pointer;
+    background: #00a1ff;
+    opacity: 0.8;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+}
+.login_message div{
+    background: red;
+    opacity: 0.8;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+    display: none;
+    transition:  2s;
+}
+.login_message{
+    -webkit-animation: login_message 2s linear;
+    -moz-animation: login_message 2s linear;
+    animation:login_message 2s linear;
+}
+@-webkit-keyframes login_message{ /*设置内容由显示变为隐藏*/
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+
+}
+#space{
+    display: none;
+}
+#space2{
+    display: none;
+}
+#space3{
+    display: none;
+}
+#space4{
+    display: none;
+}

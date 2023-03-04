@@ -1,0 +1,198 @@
+.container{
+    width: 1024px;;
+    margin: 0 auto;
+}
+/* 全部帖子导航栏 */
+.nav{
+    height: 100px;
+    line-height: 100px;
+    position: relative;
+    border-bottom: 3px solid  #f36371;
+    border-top: 1px solid white;
+}
+.nav .title{
+    float: left;
+    margin-left: 0;
+    height: 100px;
+    display: inline-block;
+    
+
+}
+
+.backg{
+    background-image: url(../images/2.jpg);
+background-size: cover;
+}
+
+.nav .title h2{
+    line-height: 100px;
+}
+.nav p{
+    display: inline-block;
+}
+.nav span{
+    color: #01a2a6 ;
+    font-size: 22px;
+}
+/* 搜索 */
+.nav .search{
+    position: relative;
+    width: 250px;
+    height: 100px;
+   float: right;
+}
+.nav .search input{
+    width: 250px;
+    height: 30px;
+    border: 2px solid gray;
+    padding-left: 31px;
+}
+.nav .search::before{
+    content: '';
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 41px;
+    left: 3px;
+    background: url('../images/sprites.png') -80px -70px;
+}
+/* 具体帖子列表 */
+.post-list{
+    position: relative;
+}
+.post-list .a-post{
+    margin: 10px 0px;
+    padding-top: 1px;
+    text-align: center;
+    box-sizing: border-box;
+    border:1px solid black;
+    padding-bottom: 20px;
+}
+.post-list .a-post .post-head{
+    height: 41px;
+    box-sizing: border-box;
+}
+.post-list .a-post .views{
+    line-height: 40px;
+    width: 100px;
+    color: grey;
+    box-sizing: border-box;
+}
+.post-list .a-post .headline{
+    line-height: 40px;
+}
+.post-list .a-post .headline:hover{
+    line-height: 40px;
+    color: #999;
+    cursor: pointer;
+}
+.post-list .a-post .post-info{
+    text-align: center;
+    line-height: 40px;
+
+}
+.post-list .post-info span{
+    margin: 0px 43px 0px 0px;
+    text-align: center;
+    color: #999;
+}
+
+.post-list .post-info span:first-child::before{
+    content: '';
+    display: inline-block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') -1472px 0px;
+    zoom: 0.029;
+    vertical-align: middle;
+}
+.post-list .a-post .content{
+    text-align: left;
+    box-sizing: border-box;
+    width: 1041px;
+    padding-left: 100px;
+}
+.post-list .a-post .content:hover{
+     color: #999;
+    cursor: pointer;
+}
+/* 帖子发布 */
+.posting
+{
+    height: 600px;
+    text-align: center;
+    position: relative;
+}
+.posting .headline{
+    width: 1170px;
+    height: 50px;
+    border: 1px solid black;
+    margin-left: 0;
+    margin-top: 20px;
+    font-size: 20px;
+    padding-left: 7px;
+    background-color: rgba(255, 255, 255, 0.897);
+}
+.posting .headline:hover{
+    background-color: rgba(255, 255, 255, 0.966);
+}
+.posting .content{
+    width: 1170px;
+    border: 1px solid black;
+    margin-left: 0;
+    margin-top: 20px;
+    font-size: 20px;
+    resize:none;
+    padding-left: 7px;
+    background-color: rgba(255, 255, 255, 0.897);
+
+}
+.posting .content:hover{
+    
+    background-color: rgba(255, 255, 255, 0.966);
+}
+.posting span{
+    font-size: 20px;
+    margin-left: 1em;
+    color: #f36371;
+}
+.posting span label {
+    color: #01a2a6;
+}
+
+.posting .submit,.posting .submit-af{
+    display: block;
+    position: absolute;
+    bottom: 156px;
+    right: 20px;
+    font-size: 20px;
+   background-color:#01a2a6 ;
+    padding:10px 20px 10px 20px;
+    color: aliceblue;
+    }
+.posting .submit:hover{
+    
+   background-color:#f36371 ;
+  
+    }
+/* 侧边栏 */
+.button{
+    background-color: blueviolet;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 67px;
+    bottom: 350px;
+}
+
+.button .aside-ref{
+    width: 50px;
+    height: 50px;
+}
+.button .aside-ref{
+    display: block;
+    height: 735px;
+    width: 735px;
+    background: url('../images/like.png') -1472px -1473px;
+    zoom: 0.09;
+}

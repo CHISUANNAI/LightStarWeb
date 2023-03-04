@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+.tree{
+   width: 1060px;
+   height: 500px;
+   margin: 20px auto;
+   border: 1px solid rgb(136, 136, 136);
+   border-radius: 1%;
+   overflow-y: auto;
+}
+.small_card{
+   margin: 5px; 
+   height: 450x;
+   width: 500px;
+   float: left;
+   -moz-transition: background 0.5s;
+   -webkit-transition: background 0.5s;
+   -o-transition: background 0.5s;
+   transition: background 0.5s;
+   border-radius: 2%;
+  border: 1px solid #999;
+}
+.small_card1{
+   margin: 5px; 
+   height: 200x;
+   width: 500px;
+   float: left;
+   -moz-transition: background 0.5s;
+   -webkit-transition: background 0.5s;
+   -o-transition: background 0.5s;
+   transition: background 0.5s;
+   border-radius: 2%;
+  border: 1px solid #999;
+}
+.small_card:hover{
+   background: #C8C8C8;
+}
+
+.yincang{
+   display: none;
+}
+/* .small_card .join_user{
+   display: inline-block;
+   width: 100%;
+   background: #D19D59;
+   height: 40px;
+   text-align: center;
+   line-height: 40px;
+   position: relative;
+   top: 20px;
+   text-decoration: none;
+} */
+.small_cardd{
+   margin: 5px; 
+   height: 200px;
+   width: 500px;
+   float: left;
+   -moz-transition: background 0.5s;
+   -webkit-transition: background 0.5s;
+   -o-transition: background 0.5s;
+   transition: background 0.5s;
+   border-radius: 2%;
+  border: 1px solid #999;
+}
+.small_cardd .leftp{
+   width: 60%;
+  margin-left: 5px;
+   float: left;
+}
+.small_cardd .rightp{
+   float: left;
+   width: 30%;
+   height: 100%;
+   padding: 20px;
+}
+.small_cardd span{
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+.small_cardd label{
+   font-size: 15px;
+   color:#006c6f;
+   margin-top: 5px;
+}
+.small_cardd button{
+   background-color: #006c6f;
+   padding: 3px;
+   color: white;
+}
+
+
+.small::after{
+   clear:both;
+}
+.fenye{
+   margin-top: 20px;
+   width: 1000px;
+   margin: 0 auto;
+}
+.fenye .fenye_list{
+   
+   width: 60%;
+   float: left;
+   text-align: center;
+}
+.fenye .fenye_list ul{
+   padding: 0;
+   margin: 0;
+      width: 360px;}
+.fenye .fenye_list ul li{
+   float: left;
+   margin-right: 10px;
+   list-style-type: none;
+}
+.fensiprev,.fensinext{
+   line-height: 40px;
+   display: block;
+   width: 40px;
+   height: 40px;
+   text-decoration: none;
+   cursor: pointer;
+}
+.fenye .fenye_list ul li .ye{
+   display: block;
+   height: 40px;
+   width: 40px;
+   text-align: center;
+   line-height: 40px;
+   text-decoration: none;
+   cursor: pointer;
+}
+.fenye_list .page{
+   display: block;
+   height: 40px;
+   float: left;
+   text-align: center;
+   line-height: 40px;
+   text-decoration: none;
+}
+.index{
+   background: #006c6f;
+   color: white;
+}
+.fenye .fenye_list ul li .ye:hover{
+   background: #006c6f;
+   color: white;
+}
+

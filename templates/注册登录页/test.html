@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>test page</title>
+ <meta charset="UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+ <script type="text/javascript">
+         function register() {
+            // 获取数据
+             var username = $("#username").val();
+            var mobile = $("#mobile").val();
+             var email =$("#email").val();
+             var password =$("#password").val();
+             var type='Vol';
+             var send_data={
+                 "userID":username,
+                 "password":password,
+                 "mobile":mobile,
+                 "email":email,
+                 "type":type,
+                 "csrfmiddlewaretoken":"{{ csrf_token }}"
+             };
+            $.ajax({
+                url:"success/",
+                type:"post",
+                dataType:"json",
+                data:send_data,
+                success:function (data) {
+                    if (data.code=== 0) {
+                        $("#hint3").text(data.message);
+                        setTimeout(function () {
+                        //注册成功后1.5s重定向到登录页面
+                        window.location.href='/user_data/login/Volunteer/'
+                    }, 1000)
+                        }
+                    else
+                        $("#hint3").text(data.message);}
+                })
+ }
+
+</script>
+  <form>
+     <input id="username" type="text" name="username" placeholder="用户名" ><span id="hint1" style="color: red"></span><br>
+      <input id="password" type="password" name="password" placeholder="密码" ><br>
+     <input id="mobile" type="text" name="mobile" placeholder="手机号" ><span id="hint2" style="color: red"></span><br>
+      <input id="email" type="text" name="email" placeholder="邮箱" ><br>
+      <button id="id" type="button" onclick="register()">注册</button> <span id="hint3" style="color: red"></span>
+  </form>
+</head>
+<body>
+
+</body>
+</html>

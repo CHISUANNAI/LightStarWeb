@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星星点灯</title>
+    <meta name="description" content="星星点灯网，致力于关爱自闭症人群">
+    <meta name="keywords" content="自闭症，关爱，志愿者">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/活动页new/css/acti.css">
+    <link rel="stylesheet" href="/活动页new/css/base.css">
+    <link rel="stylesheet" href="/活动页new/css/head.css">
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="/活动页new/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/活动页new/css/footer.css" rel="stylesheet" type="text/css" media="all" />
+   
+</head>
+<body>
+     <!-- 头部 -->
+     <header id="head">
+        <!-- 快捷菜单  -->
+        <div class="post-shortcut">
+            <nav class="container">
+                <div class="logo fl">
+                </div>
+                <ul class="left fl">
+                   <li><a href="/webxxdd/">主页</a></li>
+			<li><a href="/activity/">活动</a></li>
+			<li><a href="/BBS/show_post_html">论坛</a></li>
+			<li><a href="/Charity_sale/open_sale">义卖</a></li>
+                </ul>
+                <ul class="right fr">
+                             {% if request.session.is_login %}
+                     <label><span><a href="#">
+                                    <div class="ava"><img id="touxiang" alt=""
+                                            class="small"></div>
+                                </a></span></label><span id="session">{{ request.session.userID }}</span></li>
+                    <label><span><a href="/user_data/logout/">退出登录</a></span></label></li>
+                    <label><span><a href="/user_apply_data/openmine">个人主页</a></span></label></li>
+                    {% else %}
+                   <li ><label><span><a href="/user_data/login/">未登录</a></span></label></li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        </div>
+<!--         {% if request.session.is_login %}-->
+<!--        <div class="card" v-if="cardShow" @mouseleave="cardLoad">-->
+<!--            <ul>-->
+<!--                <li>监护人</li>-->
+<!--                <li><a href="#">收到的消息</a></li>-->
+<!--                <li><a href="#">收到的回复</a></li>-->
+<!--                <li><a href="#">待办的活动</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--         {% endif %}-->
+    </header>
+    <script src="/活动页new/js/head.js" type="text/javascript"></script>
+
+    <div class="containers banner-area">
+        <div class="banner-owl-area owl-carousel" data-carousel-loop="true" data-carousel-autoplay="false" data-carousel-mousedrag="true" data-carousel-items="1" data-carousel-nav="false">
+            <div class="banner-single-wrapper">
+                <div class="banner-img-area">
+                    <div class="banner-img">
+                        <img  class="imga" src="{{data.piclist.活动图片.url}}" alt="">
+                    </div>
+                </div>
+                <div class="banner-content-area">
+                    <h5>{{data.location}}</h5>
+                    <h1><a href="#">{{data.title}}</a></h1>
+                    <h4 class="date"><span>{{data.date}}</span> </h4>
+                    
+                    <p>{{data.article}} </p>
+                    
+                </div>
+            </div>
+            </div>
+    </div>
+         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript">
+           var userID=document.getElementById("session").innerHTML;
+            var send_data={
+                "userID":userID,
+                  "csrfmiddlewaretoken":"{{ csrf_token }}"
+            }
+            $.ajax(
+                {
+                    type:"post",
+                    url:"/gettouxiang/",
+                    datatype:"json",
+                    data:send_data,
+                    success:function(data){
+                     document.getElementById("touxiang").src=data
+                    }
+                }
+            )
+  </script>
+    <!-- Footer -->
+    <div class="w3l-footer">
+        <div class="container">
+            <div class="footer-info-agile">
+                <ul>
+                    <li class="lb">
+                        <div class=" links">
+                            <h4>快速导航</h4>
+                            <ul>
+                               <li><a href="/webxxdd/">主页</a></li>
+                                <li><a href="/activity/">活动页</a></li>
+                                <li><a href="/BBS/show_post_html">论坛页</a></li>
+                                <li></li><a href="/Charity_sale/open_sale">义卖页</a>
+                    </li>
+                    <li><a href="/user_apply_data/openmine">个人主页</a></li>
+                </ul>
+            </div>
+            </li>
+            <li class="lb">
+                <div class=" address">
+                    <h4>地址</h4>
+                    <ul>
+                        <li>上海市</li>
+                        <li>同济大学</li>
+                        <li>嘉定校区</li>
+                    </ul>
+            </li>
+            <li class="lb">
+                <div class="connect-social">
+                    <h4>合作伙伴</h4>
+                    <section class="social">
+                        <ul>
+                            <li><a class="icon fb" href="https://www.asd-home.cn/Home/Zbindex/about.html"></a><span>自闭症家园网</span>
+                            </li>
+                          <li><a class="icon tw" href="https://www.cswef.org/cswef/welfarepro/detail/id/99.html"></a><span>中国社会福利基金会</span></li>
+               	     	<li><a class="icon pin" href="http://www.autism.com.cn/"></a><span>北京孤独症儿童康复协会</span></li>
+							
+                        </ul>
+                    </section>
+            </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <div class="clearfix"></div>
+    </div>
+
+    </div>
+    </div>
+    <div class="copy">
+        <p>Copyright &copy; 2021.Light Stars All rights reserved</p>
+    </div>
+</body>
+</html>
